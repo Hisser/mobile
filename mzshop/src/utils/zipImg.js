@@ -22,6 +22,8 @@ export default function zipImg(imgSrcList,fileName) {
   },3000)
 }
 
+
+
 function getBase64Image(img) {
   let canvas = document.createElement("canvas");
   canvas.width = img.width;
