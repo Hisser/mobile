@@ -1,3 +1,4 @@
 # mobile
 花得值移动端
-使用react+dva开发
+使用反应+ DVA开发
+预览地址：http://o.yuezijie.cn
