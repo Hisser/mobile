@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="index.css" />
+
+  <!--<script type="application/javascript" src="../src/assets/js/wxAPI.js"></script>-->
+  <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
+  <script>
+    if ('addEventListener' in document) {
+      document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body);
+      }, false);
+    }
+    if(!window.Promise) {
+      document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
+    }
+  </script>
+  <script>
+    var deviceWidth = document.documentElement.clientWidth;
+        if(deviceWidth > 750) deviceWidth = 750;
+       document.documentElement.style.fontSize = deviceWidth / 10 + 'px';
+  </script>
+  <script>var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = window.androidYX ? "https://hm.baidu.com/hm.js?096736ef4f46e9b71cc8a83fc6599c4a" : "https://hm.baidu.com/hm.js?05b8fa0bcac6a7675ae9939f023c1cb6";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();</script>
+
+
+</head>
+<body>
+
+  <div id="root"></div>
+  <script src="index.js"></script>
+
+</body>
+</html>

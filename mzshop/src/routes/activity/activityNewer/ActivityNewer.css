@@ -1,0 +1,55 @@
+.showTaokey {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  text-align: center;
+  background: rgba(0,0,0,.35);
+  z-index: 999;
+}
+
+.showTaokey_taokey {
+  position: relative;
+  text-align: left;
+  left:10%;
+  top:15%;
+  width: 80%;
+  background: #fff;
+  border-radius: 0.2rem;
+}
+
+.showTaokey_taokey1 {
+  position: relative;
+  text-align: left;
+  width: 100%;
+  background-color: rgba(0,0,0,0);
+  /*background-color: mediumvioletred;*/
+  border-radius: 0.2rem;
+}
+
+.showTaokey_taokey_img {
+  width: 100%;
+}
+
+.showTaokey_tip {
+  font-size: 0.32rem;
+  text-align: center;
+  color: #43240c;
+  margin-top: -1.8rem;
+}
+
+.showTaokey_a {
+  color: #333;
+  text-decoration: none;
+}
+
+.zezao{
+  background-color: #2a2b2c;
+  z-index: 995;
+  position: fixed;
+  opacity:0.6;
+  top:0rem;
+  height: 100%;
+  width: 100%;
+}

@@ -1,0 +1,679 @@
+.back_previous{
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  height: 1.0rem;
+  width: 1.0rem;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1000;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.back_previous_img{
+  height: 50%;
+  padding-top: 0.23rem;
+}
+
+.topDiv {
+  position: fixed;
+  z-index: 900;
+  width: 100%;
+  height: 70px;
+  background-color: #222222;
+  opacity: 0.9
+}
+
+.logoDiv {
+  float: left
+}
+
+.logoImg {
+  margin-top: 16px;
+  margin-left: 20px;
+  width: 40px;
+  height: 40px
+}
+
+.titleLeft {
+  float: left;
+  margin-left: 25px;
+  margin-top: 16px
+}
+
+.openButton {
+  background-color: #ff0000;
+  height: 30px;
+  width: 100px;
+  font-size: 14px;
+  margin-top: 20px;
+  margin-left: 40px;
+  text-align: center
+}
+
+.openSpan1 {
+  color: #ffffff;
+  font-weight: bold
+}
+
+.openSpan2 {
+  color: #ff0000;
+  font-weight: bold
+}
+
+.openSpan3 {
+  color: #ffffff;
+  margin-top: 10px
+}
+
+.nameP1 {
+  margin-left: 16px
+}
+
+.nameP2 {
+  margin-left: 16px;
+  color: #999999;
+  font-size: 13
+}
+
+.leftDiv {
+  float: left
+}
+
+.clearFloat {
+  clear: both
+}
+
+.TopPSpan1 {
+  color: red;
+  font-size: 15px;
+}
+
+.TopPSpan2 {
+  color: red;
+  font-size: 25px;
+}
+
+.TopPSpan3 {
+  color: #888888;
+  font-size: 12px;
+  float: right;
+  margin-right: 1em;
+  margin-top: 1em;
+}
+
+.imgYouhui {
+  width: 40px;
+  height: 15px;
+  margin-left: 20px
+}
+
+.middle_P1 {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 5em;
+  top: 500px;
+}
+
+.middle_span1 {
+  color: white;
+  margin-top: 1em;
+  margin-left: 5em;
+  font-size: 1px;
+}
+
+.middle_span2 {
+  color: white;
+  margin-left: 2.5em;
+  font-size: 18px;
+}
+
+.titleCenter {
+  text-align: center;
+  color: #b1a9a5;
+  padding: 0 .2rem;
+  box-sizing: border-box;
+  font-size: .32rem;
+}
+
+.spaceHr {
+  margin-left: 10px;
+  margin-right: 10px;
+  backgroundC-color: #ff0000
+}
+
+.fixDiv {
+  position: fixed;
+  bottom: 0;
+  width: 100%
+}
+
+.noCouponDiv {
+  float: left;
+  width: 50%;
+  height: 60px;
+  background-Color: #ff9955
+}
+
+.couponDiv {
+  float: right;
+  width: 50%;
+  height: 60px;
+  background-Color: #ff3333
+}
+
+.couponSpan1 {
+  margin-Left: 80px;
+  top: 20px;
+  color: #ffffff
+}
+
+.couponSpan2 {
+  font-Size: 18px;
+  fontWeight: bold;
+  color: #ffffff
+}
+
+.couponSpan3 {
+  margin-Left: 80px;
+  font-Size: 12px;
+  color: #ffffff
+}
+
+.backTopImg {
+  margin-left: 20px;
+  width: 30px;
+  height: 36px
+}
+
+.backTopButton {
+  position: fixed;
+  background-color: #444444;
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  bottom: 100px;
+  right: 16px;
+}
+
+.commodityCardMsg {
+  padding: 0.267rem 0.16rem 0.2rem 0.16rem;
+  box-sizing: border-box;
+}
+
+.commodityCardTitleTmall {
+  color: #43240c;
+  font-size: 0.36rem;
+  height: 1.5rem;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+.commodityCardTitleFreePostage {
+  padding: 0 0.05rem;
+  box-sizing: border-box;
+  height: 0.5rem;
+  vertical-align: middle;
+  display: inline-block;
+  max-width: 1rem;
+}
+
+.cmd_info_price_div {
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  background-color: #ffffff;
+}
+
+.cmd_info_price_row {
+  /*overflow: hidden;*/
+  height: 1.4rem;
+}
+
+.cmd_info_price_row_quan {
+  width: 1.4rem;
+  height: auto;
+  /*vertical-align: middle;*/
+}
+
+.cmd_info_price_row_quan1 {
+  width: 0.9rem;
+  height: 1rem;
+  /*vertical-align: middle;*/
+}
+.cmd_info_price_row_price {
+  /*vertical-align: middle;*/
+  color: #fa585a;
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.element_style {
+  font-size: 0.32rem;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.cmd_info_price_info {
+  margin-top: 0.15rem;
+  padding-bottom: 0.3rem;
+  overflow: hidden;
+  color: #b1a9a5;
+}
+
+.cmd_info_price_old {
+  font-size: .32rem;
+  float: left;
+}
+
+.cmd_info_price_old_i {
+  font-size: .32rem;
+  font-style: normal;
+  text-decoration: line-through;
+}
+
+.cmd_info_sale_num1 {
+  font-size: 0.32rem;
+  color: #b1a9a5;
+  padding-top: 0.4rem;
+  float: right;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.share_button{
+  margin-left: 0.3rem;
+  font-size:0.35rem;
+  color:#fff;
+  background-color: #FE5D2F;
+  border:0.2rem solid #FE5D2F;
+  border-radius: 0.1rem;
+  -webkit-border-radius:0.1rem;
+  -moz-border-radius:0.1rem;
+}
+
+.cmd_info_sale_num {
+  font-size: 0.32rem;
+  float: right;
+}
+
+.footer {
+  background: #f5f5f5;
+  color: #fa585a;
+  overflow: hidden;
+  height: 1.3rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 101;
+}
+
+.footer_coupon_info {
+  line-height: 1.3rem;
+  padding-right: .4rem;
+  box-sizing: border-box;
+  width: 30%;
+  text-align: center;
+}
+
+.footer_app_info{
+  font-size: .36rem;
+  line-height: 1.3rem;
+  color:#fa521e;
+  font-family: "Microsoft YaHei";
+  font-weight: 500;
+}
+
+.footer_button {
+  color: #fff;
+  line-height: 1.3rem;
+  font-size: 0.36rem;
+  font-weight: 500;
+  font-family: "Microsoft YaHei";
+}
+
+.footer_button_height_all{
+  color: #fff;
+  line-height: 1.3rem;
+  font-size: 0.36rem;
+  font-weight: 500;
+  font-family: "Microsoft YaHei";
+}
+
+
+.footer_price_button {
+  color: #fff;
+  line-height: 0.6rem;
+  font-size: 0.3rem;
+  font-weight: 500;
+  font-family: 'Microsoft YaHei';
+}
+
+.footer_button1 {
+  /*width: 40%;*/
+  /*float: right;*/
+  /*background: #fa7e1f;*/
+  color: #fff;
+  line-height: 1.3rem;
+  font-size: 0.36rem;
+  font-weight: 500;
+  font-family: "Microsoft YaHei";
+}
+
+.download_div {
+  color: #fa521e;
+  padding-top: 1.6rem;
+  text-align: center;
+  height: 5rem;
+  background-color: #ffffff;
+}
+
+.download {
+  color: #fa521e;
+  margin: 1.2rem 0 1.3rem;
+  text-align: center;
+  background-color: #ffff00;
+  height: 12rem;
+}
+
+.download_download_text {
+  font-size: 0.373rem;
+  padding: 0.15rem 0.4rem;
+  box-sizing: border-box;
+  border: 1px solid #fa521e;
+  border-radius: 0.5rem;
+}
+
+.btn_app_download {
+  width: 6rem;
+  margin: 0 auto;
+  background-color: #eeeeee;
+  color: #fa521e;
+  font-size: 0.4rem;
+  text-align: center;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  border-radius: 0.5rem;
+  border-width: 0.01rem;
+  border-color: #fa521e;
+}
+
+.showTaokey {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  text-align: center;
+  background: rgba(0,0,0,.35);
+  z-index: 3;
+}
+
+.showTaokey_taokey {
+  position: relative;
+  text-align: left;
+  left:10%;
+  top:15%;
+  width: 80%;
+  background: #fff;
+  border-radius: 0.2rem;
+}
+
+.showTaokey_taokey1 {
+  position: relative;
+  text-align: left;
+  width: 100%;
+  background-color: rgba(0,0,0,0);
+  /*background-color: mediumvioletred;*/
+  border-radius: 0.2rem;
+}
+
+.showTaokey_taokey_img {
+  width: 100%;
+}
+
+.showTaokey_tip {
+  font-size: 0.32rem;
+  text-align: center;
+  color: #43240c;
+  margin-top: -1.8rem;
+}
+
+.showTaokey_a {
+  color: #333;
+  text-decoration: none;
+}
+
+.showTaokey_span {
+  text-align: center;
+  height: 1rem;
+  width: 100%;
+  position: absolute;
+  top: 6rem;
+  margin: 0 auto;
+  /*margin-left: -0.5rem;*/
+  /*left:50%;*/
+  color: #666;
+}
+.showTaokey_span1 {
+  text-align: center;
+  height: 1rem;
+  width: 100%;
+  position: absolute;
+  top: 7rem;
+  margin: 0 auto;
+  /*margin-left: -0.5rem;*/
+  /*left:50%;*/
+  color: #666;
+}
+.showTaokey_span2 {
+  text-align: center;
+  height: 1rem;
+  width: 100%;
+  position: absolute;
+  top: 8rem;
+  margin: 0 auto;
+  /*margin-left: -0.5rem;*/
+  /*left:50%;*/
+  color: #666;
+}
+.showTaokey_span3 {
+  text-align: center;
+  height: 1rem;
+  width: 100%;
+  position: absolute;
+  top: 10.5rem;
+  margin: 0 auto;
+  /*margin-left: -0.5rem;*/
+  /*left:50%;*/
+  color: #666;
+}
+
+.button{
+  font-size:0.35rem;
+  width:4rem;
+  color:#fff;
+  background-color: #FE5D2F;
+  border:0.2rem solid #FE5D2F;
+  border-radius: 0.1rem;
+  -webkit-border-radius:0.1rem;
+  -moz-border-radius:0.1rem;
+}
+.showTaokey_a_close {
+  height: .8rem;
+  width: .8rem;
+  position: absolute;
+  top: -.3rem;
+  right: -.3rem;
+  color: #666;
+}
+
+
+.showTaokey_a_close1 {
+  height: .8rem;
+  width: .8rem;
+  position: absolute;
+  top: 13rem;
+  left:50%;
+  color: #666;
+  margin-left: -0.4rem;
+}
+
+.showTaokey_a_close_img {
+  height: .8rem;
+  width: .8rem;
+}
+
+.middle_quan{
+  display: block;
+  width: 100%;
+  height: 2.3rem;
+  margin: 0.3rem 0.05rem;
+  background: url(../../assets/couponbg.png) no-repeat;
+  background-size:100%  2.3rem;
+  color: #fff;
+}
+
+.middle_quan_left{
+  width: 65%;
+  height:2.3rem;
+  float: left;
+}
+
+.middle_quan_money{
+  text-align: center;
+  font-size: 0.4rem;
+  font-family: "Microsoft YaHei";
+  margin-top: 0.5rem;
+
+}
+
+.middle_quan_money_only{
+  text-align: center;
+  font-size: 0.4rem;
+  font-family: "Microsoft YaHei";
+  margin-top: 0.8rem;
+}
+
+.middle_quan_usetime{
+  text-align: center;
+  font-size: 0.3rem;
+  color: #f4f4f4;
+  margin-top: -0.3rem;
+}
+
+.middle_quan_right{
+  width: 35%;
+  height: 2.3rem;
+  float: right;
+}
+
+.middle_quan_get{
+  text-align: center;
+  font-size: 0.36rem;
+  font-family: "Microsoft YaHei";
+  margin-top: 0.85rem;
+  }
+
+
+.middle_quan_clear{
+  clear: both;
+}
+
+
+.shop_info{
+   background-color: #fff;
+  width: 100%;
+}
+
+.shop_info_div{
+  width: 100%;
+}
+
+.shop_info_left{
+  float: left;
+  width: 35%;
+}
+
+.shop_info_right{
+  float: right;
+  width: 60%;
+  margin-top:0.3rem;
+}
+
+.shop_icon{
+  box-shadow: 5px 5px 5px #aaaaaa;
+  width: 2rem;
+  height: 2rem;
+  margin:0.3rem 0 0.3rem 0.3rem;
+  padding-left: 0.3rem;
+}
+
+.shop_level_div{
+  width:100%;
+  clear: both;
+}
+
+.shop_level_img{
+  height: 0.45rem;
+}
+
+.shop_hr{
+  background-color: #aaaaaa;
+  opacity: 0.2;
+  clear: both;
+}
+
+.shop_level{
+  display: inline;
+  padding: 0.1rem;
+  font-size: 0.1rem;
+  width: 0.2rem;
+  height: 0.2rem;
+  border-radius: 0.2rem;
+}
+
+
+
+.shop_level_left{
+  text-align: center;
+  width: 32%;
+  display: inline-block;
+  position: relative;
+  color:#555555;
+}
+
+
+.shop_level_middle{
+  text-align: center;
+  width: 34%;
+  display: inline-block;
+  position: relative;
+  border-left: solid 1px #000;
+  border-right: 1px solid red;
+  color:#555555;
+}
+
+
+
+.shop_level_right{
+  text-align: center;
+  width: 32%;
+  display: inline-block;
+  position: relative;
+  color:#555555;
+}
+
+.zezao{
+  background-color: #2a2b2c;
+  z-index: 995;
+  position: fixed;
+  opacity:0.6;
+  top:0rem;
+  height: 100%;
+  width: 100%;
+  bottom: 0rem;
+}

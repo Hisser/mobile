@@ -1,0 +1,141 @@
+.sectionTop1 {
+  padding-top: 2.3rem;
+}
+
+.sectionTop2 {
+  padding-top: 1.5rem;
+}
+
+.fixedTop {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fdde4a;
+}
+
+.navTitle {
+  color: #333;
+  font-weight: 700;
+  font-size: 0.45rem;
+}
+
+.back {
+  color: #333;
+  font-size: 0.36rem;
+}
+
+.back_icon {
+  color: #333;
+}
+
+.navbar {
+  background-color: #fdde4a;
+  margin-top: 0.3rem;
+  margin-bottom: -0.2rem;
+}
+
+.title_left{
+  color: #333;
+  font-size: 0.45rem;
+  width: 1rem;
+  font-weight: 700;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  border-right: 1px solid #000;
+}
+
+.title_right_img{
+  height:0.6rem;
+  padding-left: 0.2rem;
+}
+
+.title_div_1{
+  width: 7rem;
+  background-color:#0000ff
+}
+
+.title_div_2{
+  background-color: #fdde4a;
+  height: auto;
+}
+
+.title_div_3{
+  white-space: nowrap;
+  overflow-x: scroll;
+  width: auto;
+  line-height: 1rem;
+}
+
+.title_label{
+  vertical-align: middle;
+  padding-right: 0.1rem;
+  padding-left: 0.1rem;
+  height: 1rem;
+  margin-left: 0.5rem;
+  color: #43240c;
+  font-size: 0.4rem;
+}
+
+
+.title_left{
+  color: #717171;
+  font-size: 0.45rem;
+  /*width: 1rem;*/
+  font-weight: 600;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  border-right: 1px solid #000;
+}
+.title_left_select{
+  color: #333;
+  font-size: 0.45rem;
+  /*width: 1rem;*/
+  font-weight: 700;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  border-right: 1px solid #000;
+}
+
+.title_right_img{
+  height:0.6rem;
+  padding-left: 0.2rem;
+}
+
+.title_div_1{
+  background-color:#0000ff
+}
+
+.title_div_2{
+  background-color: #fdde4a;
+  height: auto;
+}
+
+.title_div_3{
+  white-space: nowrap;
+  overflow-x: scroll;
+  width: auto;
+  line-height: 1rem;
+}
+
+.title_label{
+  vertical-align: middle;
+  padding-right: 0.1rem;
+  padding-left: 0.1rem;
+  height: 1rem;
+  margin-left: 0.5rem;
+  color: #43240c;
+  font-size: 0.4rem;
+}
+.title_label_select{
+  vertical-align: middle;
+  padding-right: 0.1rem;
+  padding-left: 0.1rem;
+  height: 1rem;
+  margin-left: 0.5rem;
+  color: #43240c;
+  font-size: 0.4rem;
+  font-weight: 700;
+  border-bottom: 3px solid #484848;
+}

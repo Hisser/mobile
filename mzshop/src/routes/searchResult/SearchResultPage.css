@@ -1,0 +1,60 @@
+
+.div {
+  background-color: #ffffff;
+  height: 100%;
+}
+
+.flex_container {
+  background-color: #ffffff;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.sub_title {
+  color: #888;
+  font-size: 0.4rem;
+  padding: 0.3rem 0;
+}
+
+.search_div {
+  width: 100%;
+  overflow: hidden;
+  height: 1.333rem;
+  line-height: 1.333rem;
+  color: #877a73;
+  background-color: #fdde4a;
+  box-shadow: 1px 2px 5px hsla(0, 11%, 79%, .5);
+}
+
+.search_bar {
+  height: 1.333rem;
+  /*background: linear-gradient(to right,#f7993b, #fe5e2f);*/
+  background-color: #fdde4a;
+}
+
+.search_close {
+  float: left;
+  height: 1.333rem;
+  line-height: 1.333rem;
+  font-size: .4rem;
+  margin-left: .533rem;
+}
+
+.tabsItem {
+  backgroundColor: #ffffff;
+}
+
+.label_select {
+  color: red;
+}
+
+.label_plat {
+  color: #042238;
+}
+
+.label_plat_select {
+  color: blue;
+}

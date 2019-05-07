@@ -1,0 +1,14 @@
+
+.button{
+  font-size:0.35rem;
+  color: #ffffff;
+  background-color: #944afd;
+  border:0.2rem solid #944afd;
+  /*border-radius: 0.1rem;*/
+  border-top-left-radius:0.1rem;
+  border-bottom-left-radius: 0.1rem;
+  -webkit-border-radius:0.1rem;
+  -moz-border-radius:0.1rem;
+  width: 2rem;
+  height:1rem;
+}

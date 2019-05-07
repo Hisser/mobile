@@ -1,0 +1,140 @@
+
+.div {
+  background-color: #ffffff;
+  height: 100%;
+}
+
+.flex_container {
+  background-color: #ffffff;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.sub_title {
+  color: #888;
+  font-size: 0.4rem;
+  padding: 0.3rem 0;
+}
+
+.search_div {
+  width: 100%;
+  overflow: hidden;
+  height: 1.333rem;
+  line-height: 1.333rem;
+  color: #877a73;
+  /*background-color: #f7993b;*/
+  background-color: #fdde4a;
+  box-shadow: 1px 2px 5px hsla(0, 11%, 79%, .5);
+}
+
+.search_bar {
+  height: 1.333rem;
+  /*background: linear-gradient(to right,#f7993b, #fe5e2f);*/
+  background-color: #fdde4a;
+}
+
+.search_close {
+  float: left;
+  height: 1.333rem;
+  line-height: 1.333rem;
+  font-size: .4rem;
+  margin-left: .533rem;
+}
+
+
+.search_backPrevious {
+  float: left;
+  height: 1.333rem;
+  line-height: 1.333rem;
+  font-size: .4rem;
+  margin-left: 0.3rem;
+}
+
+.search_back_img{
+  margin-top:0.4rem;
+  width:0.3rem;
+  height:0.55rem;
+}
+
+.tabsItem {
+  backgroundColor: #ffffff;
+}
+
+.label_select {
+  color: red;
+}
+
+.label_plat {
+  color: white;
+}
+
+.label_plat_select {
+  color: blue;
+}
+
+
+.title_left{
+  color: #717171;
+  font-size: 0.45rem;
+  width: 2rem;
+  font-weight: 600;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  border-right: 1px solid #000;
+}
+
+.title_left_select{
+  color: #333;
+  font-size: 0.45rem;
+  width: 2rem;
+  font-weight: 700;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  border-right: 1px solid #000;
+}
+
+.title_right_img{
+  height:0.6rem;
+  padding-left: 0.2rem;
+}
+
+.title_div_1{
+  width: 7rem;
+  background-color:#0000ff
+}
+
+.title_div_2{
+  background-color: #fdde4a;
+  height: auto;
+}
+
+.title_div_3{
+  white-space: nowrap;
+  overflow-x: scroll;
+  width: auto;
+  line-height: 1rem;
+}
+
+.title_label{
+  vertical-align: middle;
+  padding-right: 0.1rem;
+  padding-left: 0.1rem;
+  height: 1rem;
+  margin-left: 0.5rem;
+  color: #43240c;
+  font-size: 0.4rem;
+}
+.title_label_select{
+  vertical-align: middle;
+  padding-right: 0.1rem;
+  padding-left: 0.1rem;
+  height: 1rem;
+  margin-left: 0.5rem;
+  color: #43240c;
+  font-size: 0.4rem;
+  font-weight: 700;
+  border-bottom: 3px solid #484848;
+}

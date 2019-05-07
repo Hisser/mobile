@@ -1,0 +1,25 @@
+
+.button2{
+  font-size:0.38rem;
+  font-family: "Microsoft YaHei";
+  color:#fff;
+  background-color: #ED3D38;
+  border:0.2rem solid #ED3D38;
+  border-radius: 0.2rem;
+  -webkit-border-radius:0.2rem;
+  -moz-border-radius:0.2rem;
+  width:7rem;
+  height:1rem;
+}
+.button1{
+  font-size:0.4rem;
+  font-family: "Microsoft YaHei";
+  color:#fff;
+  background-color: #4293E4;
+  border:0.2rem solid #4293E4;
+  border-radius: 0.2rem;
+  -webkit-border-radius:0.2rem;
+  -moz-border-radius:0.2rem;
+  width:90%;
+  height:1.3rem;
+}

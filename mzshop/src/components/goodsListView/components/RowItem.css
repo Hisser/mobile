@@ -1,0 +1,164 @@
+
+.divTop {
+  width: 100%;
+  height: 100%;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: #ffffff;
+}
+
+.commodityCard {
+  background-color: #fff;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  color: #333;
+}
+
+.commodityContainer {
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 100%;
+  width: 100%;
+  display: block;
+}
+
+.commodityCardImg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: translate(-50%, -50%);
+}
+
+.commodityCardMsg {
+  padding: 0.267rem 0.16rem;
+  box-sizing: border-box;
+}
+
+.commodityCardTitleTmall {
+  color: #877a73;
+  font-size: 0.32rem;
+  height: 0.9rem;
+  overflow: hidden;
+  word-wrap: break-word;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.commodityCardSalesNum {
+  color: #877a73;
+  font-size: 0.32rem;
+  overflow: hidden;
+  word-wrap: break-word;
+  float:right;
+  line-height: 0.5rem;
+  font-family: "Microsoft YaHei";
+}
+
+.commodityCardTitleFreePostage {
+  padding-right: 0.1rem;
+  box-sizing: border-box;
+  height: 0.38rem;
+  vertical-align: middle;
+  display: inline-block;
+  max-width: 1rem;
+}
+
+.commodityCardKeywordV {
+  overflow: hidden;
+  height: 0.55rem;
+}
+
+.commodityCardKeyword {
+  float: left;
+  font-size: 0.267rem;
+  color: #fa585a;
+  padding: 0 0.1rem;
+  box-sizing: border-box;
+  display: inline-block;
+  border: 1px solid #fa585a;
+  border-radius: 0.08rem;
+  margin: 0.107rem 0.16rem 0 0;
+  height: 0.4rem;
+  line-height: 0.4rem;
+  vertical-align: middle;
+}
+
+.commodityCardFoot {
+  font-size: 0;
+  height: auto;
+  overflow: hidden;
+  padding-top: 0.2rem;
+  padding-left: 0.1rem ;
+  padding-right: 0.2rem ;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.commodityCardFootPrice {
+  color: #fa585a;
+  font-size: 0.45rem;
+  font-weight: 700;
+  margin-right: 0.2rem;
+}
+
+.spanPrice {
+  font-size: 0.25rem;
+}
+
+.spanDigit {
+  font-size: 0.427rem;
+}
+
+.commodityCardFootOriginPrice {
+  font-size: 0.32rem;
+  color: #877a73;
+  text-decoration: line-through;
+  letter-spacing: 0;
+}
+
+.commodityCardFootCouponValue {
+  color: #fa585a;
+  font-size: 0.32rem;
+  background: url(../../../assets/coupon-bg.png);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 100% 100%;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0.00rem 0.1rem;
+  /*box-sizing: border-box;*/
+  float:right;
+  margin-right: 0.1rem;
+  margin-top: 0.1rem;
+  padding-top:0.05rem;
+}
+
+
+
+.split_line {
+  color: hsla(21,8%,49%,.7);
+  text-align: center;
+  height: 1.067rem;
+  line-height: 1.067rem;
+  vertical-align: middle;
+  font-size: 0;
+}
+
+.split_line_line {
+  height: 1px;
+  background-color: #fdde4a;
+  width: 15%;
+  display: inline-block;
+  margin-bottom: 3px;
+}
+
+.split_line_text {
+  font-size: .32rem;
+}
+
+

@@ -1,0 +1,93 @@
+.showTaokey {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  text-align: center;
+  background: rgba(0,0,0,.35);
+  z-index: 999;
+}
+
+.showTaokey_taokey {
+  position: relative;
+  text-align: left;
+  left:10%;
+  top:15%;
+  width: 80%;
+  background: #fff;
+  border-radius: 0.2rem;
+}
+
+.showTaokey_taokey1 {
+  position: relative;
+  text-align: left;
+  width: 100%;
+  background-color: rgba(0,0,0,0);
+  /*background-color: mediumvioletred;*/
+  border-radius: 0.2rem;
+}
+
+.showTaokey_taokey_img {
+  width: 100%;
+}
+
+.showTaokey_tip {
+  font-size: 0.32rem;
+  text-align: center;
+  color: #43240c;
+  margin-top: -1.8rem;
+}
+
+.showTaokey_a {
+  color: #333;
+  text-decoration: none;
+}
+
+.zezao{
+  background-color: #2a2b2c;
+  z-index: 995;
+  position: fixed;
+  opacity:0.6;
+  top:0rem;
+  height: 100%;
+  width: 100%;
+}
+.button2{
+  font-size:0.4rem;
+  color:#fff;
+  background-color: #f8000c;
+  border:0.2rem solid #f8000c;
+  border-radius: 0.1rem;
+  -webkit-border-radius:0.1rem;
+  -moz-border-radius:0.1rem;
+  width:6rem;
+  height:1.2rem;
+}
+.div3{
+  width:95%;
+  /*background-color: #f7fbe9;*/
+  height: 6rem;
+  overflow-y: auto;
+  margin:0 auto;
+  border-radius:0.2rem;
+  text-align:center;
+  padding-top:0.2rem;
+  background-color: rgba(247,251,233,0.2);
+}
+.div2{
+  width:95%;
+  height:1rem;
+  /*background-color: #f3fbf4;*/
+  margin:0 auto;
+  margin-top:0.2rem;
+  border-radius: 0.3rem;
+  display: flex;
+  alignItems:'center'
+}
+.pic1{
+  height:1rem;
+  width: 1rem;
+  border-radius: 0.5rem;
+  margin-left: 0.3rem;
+}

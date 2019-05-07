@@ -1,0 +1,75 @@
+.fixedTop {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fdde4a;
+}
+
+.navTitle {
+  color: #333;
+  font-weight: 500;
+  font-size: 0.45rem;
+}
+.back {
+  color: #333;
+  font-size: 0.36rem;
+}
+
+.back_icon {
+  color: #333;
+}
+
+.navbar {
+  background-color: #fdde4a;
+  margin-top: 0.3rem;
+  margin-bottom: -0.2rem;
+}
+
+
+.gd {
+  font-size: 15px;
+  margin-left: 10px;
+  height: 0.8rem;
+}
+
+
+.span4 {
+  font-family: "Microsoft YaHei";
+  font-size: 16px;
+  margin-left: 20px;
+  vertical-align: middle;
+  color: red;
+}
+.span{
+  font-family: "Microsoft YaHei";
+  font-size: 0.45rem;
+  text-align: center;
+  width: 100%;
+  height: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.span1{
+  font-family: "Microsoft YaHei";
+  font-size: 0.35rem;
+  color: #6d6d6d;
+}
+.span2{
+  font-family: "Microsoft YaHei";
+  display: inline-block;
+  padding-left: 0.5rem;
+  color: red;
+  font-size: 0.4rem;
+}
+.button{
+  margin-left: 1rem;
+  font-size:0.35rem;
+  color:#fff;
+  background-color: #47a2ff;
+  border:2px solid #fff;
+  border-radius:0.3rem;
+  -webkit-border-radius:0.3rem;
+  -moz-border-radius:0.3rem;
+}

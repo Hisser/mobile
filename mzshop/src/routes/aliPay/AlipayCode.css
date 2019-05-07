@@ -1,0 +1,89 @@
+.back_previous{
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  height: 1.0rem;
+  width: 1.0rem;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1000;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.back_previous_img{
+  height: 50%;
+  padding-top: 0.23rem;
+}
+
+.cmd_info_price_div {
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  background-color: #ffffff;
+}
+
+.code_name {
+  height: 1.6rem;
+  font-size: large;
+  padding: 0.1rem;
+  text-align: center;
+}
+
+
+.interval_div {
+  height: 0.8rem;
+  width:100%;
+  background-color: #cccccc;
+}
+
+.download_button{
+  width:100%;
+  font-size:0.35rem;
+  color:#fff;
+  background-color: #FE5D2F;
+  border:0.2rem solid #FE5D2F;
+  /*border-radius: 0.1rem;*/
+}
+
+.cmd_info_sale_num {
+  font-size: 0.32rem;
+  float: right;
+}
+
+.footer {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  background: #f5f5f5;
+  color: #fa585a;
+  overflow: hidden;
+  height: 1.8rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 101;
+}
+
+.button2{
+  font-size:0.38rem;
+  font-family: "Microsoft YaHei";
+  color:#fff;
+  background-color: #ED3D38;
+  border:0.2rem solid #ED3D38;
+  border-radius: 0.2rem;
+  -webkit-border-radius:0.2rem;
+  -moz-border-radius:0.2rem;
+  width:5rem;
+  height:1rem;
+}
+.button1{
+  font-size:0.4rem;
+  font-family: "Microsoft YaHei";
+  color:#fff;
+  background-color: #4293E4;
+  border:0.2rem solid #4293E4;
+  border-radius: 0.2rem;
+  -webkit-border-radius:0.2rem;
+  -moz-border-radius:0.2rem;
+  width:90%;
+  height:1.3rem;
+}

@@ -1,0 +1,105 @@
+.fixedTop {
+  z-index: 900;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width:100%;
+  background-color: #fdde4a;
+}
+
+.navTitle {
+  color: #333;
+  font-weight: 600;
+  font-size: 0.45rem;
+}
+
+.back {
+  color: #333;
+  font-size: 0.36rem;
+}
+
+.back_icon {
+  color: #333;
+}
+
+.navbar {
+  background-color: #fdde4a;
+  margin-top: 0.3rem;
+  margin-bottom: -0.2rem;
+}
+
+
+.gd {
+  height: 0.5rem;
+  background-color: white;
+  text-align: center;
+}
+
+
+.span4 {
+  font-size: 0.35rem;
+  font-family: "Microsoft YaHei";
+}
+.span{
+  font-family: "Microsoft YaHei";
+  font-size: 0.45rem;
+  text-align: center;
+  width: 50%;
+  height: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.span1{
+  font-family: "Microsoft YaHei";
+  font-size: 0.35rem;
+  font-weight: 600;
+  color: #585858;
+
+  height: 1.05rem;
+  overflow: hidden;
+  word-wrap: break-word;
+  line-height: 1.5;
+  text-align: left;
+}
+
+
+.span2{
+  font-family: "Microsoft YaHei";
+  font-size: 0.35rem;
+  font-weight: 500;
+  color: #1d1d1d;
+}
+
+.button{
+  font-size:0.35rem;
+  color:#fff;
+  background-color: #FE5D2F;
+  border:0.2rem solid #FE5D2F;
+  border-radius: 0.1rem;
+  -webkit-border-radius:0.1rem;
+  -moz-border-radius:0.1rem;
+}
+
+.button1{
+  margin-left: 0.3rem;
+  font-size:0.35rem;
+  color:#fff;
+  background-color: #FE5D2F;
+  border:0.2rem solid #FE5D2F;
+  border-radius: 0.1rem;
+  -webkit-border-radius:0.1rem;
+  -moz-border-radius:0.1rem;
+}
+.button2{
+  float: right;
+  font-size:0.35rem;
+  color:#fff;
+  background-color: #FE5D2F;
+  border:0.2rem solid #FE5D2F;
+  border-radius: 0.1rem;
+  -webkit-border-radius:0.1rem;
+  -moz-border-radius:0.1rem;
+  width:2.5rem;
+  height:0.8rem;
+}

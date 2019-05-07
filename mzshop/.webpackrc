@@ -1,0 +1,8 @@
+{
+"proxy": {
+    "/api": {
+      "target": "http://192.168.9.88:8080/api",
+      "changeOrigin": true,
+      "pathRewrite": { "^/api" : "" }
+    }}
+}

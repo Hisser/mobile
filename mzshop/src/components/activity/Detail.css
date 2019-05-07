@@ -1,0 +1,10 @@
+.Botton{
+  width: 100px;
+  background-color: #ff961a;
+
+}
+.div{
+  position: absolute;
+  left: 70%;
+  margin-top: -140%;
+}

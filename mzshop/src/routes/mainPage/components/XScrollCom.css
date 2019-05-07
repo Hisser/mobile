@@ -1,0 +1,126 @@
+
+.container {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.container_x {
+  overflow-x: scroll;
+  width: auto;
+  white-space: nowrap;
+  position: relative;
+}
+
+.no_img{
+  position: absolute;
+  /*float: left;*/
+  width: 0.5rem;
+  height: auto;
+  z-index: 2;
+}
+
+.item_div {
+  display: inline-block;
+  height: 5rem;
+  width: 3rem;
+  margin: 0.2rem;
+}
+
+.item_img {
+  text-align: center;
+  width: auto;
+  height: 3rem;
+  border: 1px solid #d9d9d9;
+  box-sizing: border-box;
+}
+
+.commodity_info {
+  padding: .1rem .16rem;
+  box-sizing: border-box;
+}
+
+.commodity_info_more {
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid #d9d9d9;
+  box-sizing: border-box;
+  margin: 0.1rem;
+  margin-top: 0.2rem;
+  background-color: #ffffff;
+}
+
+
+.commodity_info_more_space {
+  vertical-align: top;
+  display: inline-block;
+  width: 2rem;
+  height: 3rem;
+  margin: 0.1rem;
+  margin-top: 0.2rem;
+  background-color: #ffffff;
+}
+
+.commodity_info_space {
+  padding: .1rem .16rem;
+  box-sizing: border-box;
+  width: 3rem;
+  height: 2rem;
+}
+
+.commodity_title {
+  font-size: .3rem;
+  height: .4rem;
+  overflow: hidden;
+  margin-bottom: .1rem;
+  color: #877a73;
+}
+
+.commodity_price {
+  height: .6rem;
+  line-height: .6rem;
+  vertical-align: middle;
+}
+
+.price {
+  color: #fa585a;
+  font-size: .45rem;
+  font-weight: 700;
+  margin-right: .1rem;
+}
+
+.price_symbol {
+  font-size: 0.25rem;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.price_symbol_num {
+  font-size: 0.25rem;
+  font-weight: normal;
+}
+
+.sales_num {
+  margin-top: -0.02rem;
+  font-size: 0.3rem;
+  color: #877a73;
+}
+
+.top_list_see_more_text {
+  display: inline-block;
+  border-bottom: 1px solid #d9d9d9;
+  padding-bottom: 0.1rem;
+  font-size: .4rem;
+  color: #fda900;
+  text-align: center;
+}
+
+.top_list_see_more_sub_text {
+  color: #877a73;
+  font-size: .38rem;
+  text-align: center;
+  color: #877a73;
+  marigin-top :-1.8rem;
+}

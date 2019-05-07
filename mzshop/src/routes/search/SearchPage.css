@@ -1,0 +1,92 @@
+.div {
+  background-color: #ffffff;
+  height: 100%;
+}
+
+.flex_container {
+  padding: 0 15px;
+  background-color: #ffffff;
+  /*width:100%;*/
+}
+
+.btn_hot_search {
+  /*width: 2rem;*/
+  width: 2.3rem;
+  margin: 0.2rem 0.1rem 0.1rem 0.1rem;
+  background-color: #ebebef;
+  color: #000000;
+  font-size: 0.36rem;
+  text-align: center;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  border-radius: 0.2rem;
+}
+
+.btn_goods_search {
+  width: 2rem;
+  margin: 0.2rem 0.1rem 0.1rem 0.1rem;
+  /*padding:0 0.3rem;*/
+  overflow: hidden;
+  /*background-color: #ebebef;*/
+  color: #000000;
+  font-size: 0.36rem;
+  text-align: center;
+  height: 0.8rem;
+  line-height: 0.8rem;
+}
+
+.btn_app_download {
+  width: 6rem;
+  margin: 0 auto;
+  background-color: #eeeeee;
+  color: #fa521e;
+  font-size: 0.4rem;
+  text-align: center;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  border-radius: 0.5rem;
+  border-width: 0.01rem;
+  border-color: #fa521e;
+}
+
+.sub_title {
+  color: #888;
+  font-size: 0.4rem;
+  padding: 0.3rem 0;
+}
+
+.search_div {
+  width: 100%;
+  overflow: hidden;
+  height: 1.333rem;
+  line-height: 1.333rem;
+  color: #877a73;
+
+  background-color: #fdde4a;
+  box-shadow: 1px 2px 5px hsla(0, 11%, 79%, .5);
+}
+
+.search_bar {
+  height: 1.333rem;
+  background-color: #fdde4a;
+  /*background: linear-gradient(to right,#f7993b, #fe5e2f);*/
+}
+
+.search_close {
+  float: left;
+  height: 1.333rem;
+  line-height: 1.333rem;
+  font-size: .4rem;
+  margin-left: .533rem;
+}
+
+.button1{
+  margin-left: 0.3rem;
+  font-size:0.35rem;
+  color:#fff;
+  background-color: #FE5D2F;
+  border:0.2rem solid #FE5D2F;
+  border-radius: 0.1rem;
+  -webkit-border-radius:0.1rem;
+  -moz-border-radius:0.1rem;
+}
