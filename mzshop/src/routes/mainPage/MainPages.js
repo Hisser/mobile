@@ -64,6 +64,21 @@ class MainPages extends React.Component {
   }
 
 
+
+  componentWillMount(){
+    let  token = JSON.parse(window.localStorage.getItem('token'));
+    if (token === null || (token !== null && (token.userSecKey === null || token.userSecKey === undefined))) { //没有就授权登录
+      console.log("授权登录");
+      let serverUrl = window._global.url.host;
+      let href = window.location.href;
+      let url = href.substring(href.indexOf('#/') + 1);
+     if (CommonUtil.isAlipay()) {//支付宝
+         window.location.href = serverUrl + "/alipay/redirect?requestUrl=" + url;
+      }
+    }
+  }
+
+
   //跳转到搜索页面
 turnToSearch=()=> {
     this.props.dispatch(routerRedux.push('/search'));

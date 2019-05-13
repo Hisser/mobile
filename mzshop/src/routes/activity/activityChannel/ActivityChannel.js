@@ -65,9 +65,6 @@ class ActivityChannel  extends React.Component{
         }else{
           Toast.info("渠道段号不合法");
         }
-
-
-
       }
     }
 

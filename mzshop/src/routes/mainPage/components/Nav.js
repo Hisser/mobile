@@ -123,14 +123,25 @@ class Nav extends React.Component {
 
   login =() =>{
     let token = JSON.parse(window.localStorage.getItem('token'));
-    if (token.accessToken!==null && token.userSecKey !== null ){
-      Toast.info('你已登录无需重复登录!')
-    }else{
+    if (token.accessToken !== null && token.userSecKey !== null) {
+      // Toast.info('你已登录无需重复登录!');
+      this.props.dispatch(routerRedux.push({pathname: '/personal'}));
+    } else {
       this.setState({
           show: true,
         }
       )
-      this.alert();
+      let serverUrl = window._global.url.host;
+      let href = window.location.href;
+      let url = href.substring(href.indexOf('#/') + 1);
+
+      if(CommonUtil.isAlipay()){
+        window.location.href = serverUrl + "/alipay/redirect?requestUrl=" + url;
+      }else if(CommonUtil.isWeiXin()){
+        window.location.href = serverUrl + "/weChat/redirect?requestUrl=" + url;
+      }else {
+        this.alert();
+      }
     }
   }
 

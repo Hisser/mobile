@@ -31,3 +31,32 @@ export function queryMyFans(para) {
   }
   return fetchPost('/api/gateWay', data);
 }
+
+
+//查询账户信息
+export function queryAccountInfo() {
+  let data={
+    service: 'accountInfo'
+  }
+  return fetchPost('/api/gateWay', data);
+}
+
+export function updateUserInfo(para) {
+
+  let mobile = para.mobile;
+  let code = para.code;
+  let submitData = {};
+  let userInfo = {
+    mobile: ''
+  };
+  userInfo.mobile = mobile;
+  submitData.info = JSON.stringify(userInfo);
+  submitData.code = code;
+
+  let data = {
+    service: 'updateUserInfo',
+  };
+
+  Object.assign(data, submitData);
+  return fetchPost('/api/gateWay', data);
+}

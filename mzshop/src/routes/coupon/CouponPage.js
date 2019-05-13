@@ -27,7 +27,7 @@ import CommonUtil from "../../utils/CommonUtil";
 import {fetchPost} from "../../utils/http";
 import $ from "jquery";
 
-
+const alert = Modal.alert;
 //花得值APP在应用宝的下载地址
 function OpenImmediate() {
   window.location.href = "https://android.myapp.com/myapp/detail.htm?apkName=com.qianshou.zshop&ADTAG=mobile";
@@ -56,29 +56,47 @@ function CouponPage({dispatch, coupon}) {
 
   //分享好友
   function showShareActionSheets(from, goodsId, title, pic, price) {
-    dispatch({type: 'coupon/showModel1', payload: true});
-    // console.log('这里是1',goodsId);
-    // let plat = '';
-    // if (from === 'taobao' || from == 'tmall') {
-    //   plat = '1_';
-    // } else if (from === 'jd') {
-    //   plat = '2_';
-    // } else if (from === 'pdd') {
-    //   plat = '3_';
-    // }
-    // goodsId = plat + goodsId;
-    // console.log('这里是2',goodsId);
-    var param = {
-      title: '我发现了一个好货,只需要￥' + price + '，点开带走它吧！',
-      link: window._global.url.host + "/api/redirect?redirectUrl=" +  '/detail/' + goodsId,
-      imgUrl: pic,
-      desc: title,
-      success: function () {
-        dispatch({type: 'coupon/showModel1', payload: false});
-        alert('分享成功');
-      },
-    };
-    wechatApi.share(param);
+
+    if(CommonUtil.isWeiXin()) {
+      dispatch({type: 'coupon/showModel1', payload: true});
+      var param = {
+        title: '我发现了一个好货,只需要￥' + price + '，点开带走它吧！',
+        link: window._global.url.host + "/api/redirect?redirectUrl=" + '/detail/' + goodsId,
+        imgUrl: pic,
+        desc: title,
+        success: function () {
+          dispatch({type: 'coupon/showModel1', payload: false});
+          alert('分享成功');
+        },
+      };
+      wechatApi.share(param);
+    }else if(CommonUtil.isAlipay()){//支付宝环境创建海报
+      console.log(from,goodsId)
+      dispatch({
+        type:'coupon/createCouponPoster',
+        payload:{
+          from: from ,
+          goodsId:goodsId
+        }
+      })
+
+    }else{
+      let userId =  window.localStorage.getItem('userId');
+      if(userId ==null ||userId==''){
+        alert('提示', '请返回支付宝或者微信进行分享', [
+          { text: '取消', onPress: () => {console.log('取消分享')} },
+          { text: '确定', onPress: () => {console.log('取消分享')}},
+        ])
+      }else{
+        dispatch({
+          type:'coupon/createCouponPoster',
+          payload:{
+            from: from ,
+            goodsId:goodsId
+          }
+        })
+      }
+    }
 
   }
 
@@ -154,15 +172,19 @@ function CouponPage({dispatch, coupon}) {
 
   function downApp() {
     if (CommonUtil.isAlipay()) {
-      if (CommonUtil.isAndroidOrIOS() == 'Android') {
-        window.location.href = window._global.yyb_url;
-      } else {
+      if(CommonUtil.isAndroidOrIOS() =='ios') {
         window.location.href = window._global.appStore_url;
+      }else {
+        dispatch({type: 'coupon/showModel1', payload: true});
       }
     }else if(CommonUtil.isWeiXin()){
       window.location.href = window._global.yyb_url;
     }else {
-      window.location.href = window._global.yyb_url;
+      if(CommonUtil.isAndroidOrIOS() =='ios') {
+        window.location.href = window._global.appStore_url;
+      }else {
+        window.location.href = window._global.server_url;
+      }
     }
   }
 
@@ -544,11 +566,18 @@ return (
               <img src={sharePic} style={{width: '100%', marginTop: '0rem'}}/>
             </div>
           </div>
-          <div id={'zezao'} style={{position: 'fixed', zIndex: '995', top: '2.4rem', left: '2.5rem'}}>
-              <span style={{fontSize: '0.5rem', fontFamily: 'Microsoft YaHei', color: 'white'}}>
+          {
+            CommonUtil.isAlipay() ?
+          <div id={'zezao'} style={{position: 'fixed', zIndex: '995', top: '2.4rem', left: '1rem'}}>
+             <span style={{fontSize: '0.5rem', fontFamily: 'Microsoft YaHei', color: 'white'}}>
+               点击右上角使用浏览器打开</span>
+          </div>:
+              <div id={'zezao'} style={{position: 'fixed', zIndex: '995', top: '2.4rem', left: '2.5rem'}}>
+                <span style={{fontSize: '0.5rem', fontFamily: 'Microsoft YaHei', color: 'white'}}>
                点击右上角进行分享
               </span>
-          </div>
+              </div>
+          }
         </div> : null
     }
   </div>

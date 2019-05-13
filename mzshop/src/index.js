@@ -25,10 +25,12 @@ import rebateNewer from "./models/rebateNewer";
 import redPack from "./models/redPack";
 import alipayGroup from "./models/alipayGroup";
 import myFans from "./models/myFans";
+import personal from "./models/personal";
 import  './global.js';
 import * as CommonUtil from "./utils/CommonUtil";
 import * as wechatApi from "./wechatApi";
 import {fetchPost} from "./utils/http";
+import shareAli from "./models/shareAli";
 
 
 // 1. Initialize
@@ -61,6 +63,9 @@ app.model(rebateNewer);
 app.model(redPack);
 app.model(alipayGroup);
 app.model(myFans);
+app.model(personal);
+app.model(shareAli);
+
 
 
   let token = null;
@@ -100,7 +105,7 @@ app.model(myFans);
       window.localStorage.setItem('from', from);
       window.location.href = serverUrl + "/weChat/redirect?requestUrl=" + url;
     }else if (CommonUtil.isAlipay()) {//支付宝
-      window.location.href = serverUrl + "/alipay/redirect?requestUrl=" + url;
+      // window.location.href = serverUrl + "/alipay/redirect?requestUrl=" + url;
     }else{
       console.log('浏览器环境')
     }
@@ -114,6 +119,7 @@ app.model(myFans);
         window.localStorage.setItem('userId', res.user.userId);
         window.localStorage.setItem('userName',res.user.nickName);
         window.localStorage.setItem('userIco',res.user.userIco);
+        window.localStorage.setItem('mobile',res.user.mobile);
         console.log('用户信息查询成功');
       }else{
         console.log('用户信息查询失败');

@@ -40,7 +40,6 @@ export default {
     },
 
     saveFlag(state, {payload}){
-      console.log(payload.flag)
       return {
         ...state,
         flag: payload.flag
@@ -84,8 +83,27 @@ export default {
       const res = yield call(alipayService.check, para.channelId, 'check');
       console.log('res', res);
       if (res.code == 1) {
-        yield put({type: 'saveFlag', payload: {flag: !res.flag}})
+        yield put({type: 'saveFlag', payload: {flag: !res.flag}});
+        let goodsInfo = yield call(goodsService.queryHotList, {
+          pageNo: 1,
+          pageSize: 20,
+          cid:0,
+          type:1
+        });
+        if (goodsInfo.code == 1) {
+          let hasMore = goodsInfo.totalPage > para.pageNo;
+          yield put({type: 'saveHasMore', payload: {hasMore: false}});
+          yield put({type: 'saveGoodsList', payload: {goodsList: goodsInfo.data}});
+        } else {
+
+          yield put({type: 'saveGoodsList', payload: {goodsList: []}});
+          yield put({type: 'saveHasMore', payload: {hasMore: false}});
+        }
       }
+
+
+
+
     },
 
     * onPress({payload: para}, {call, put}){
@@ -110,6 +128,7 @@ export default {
       const res = yield call(alipayService.queryAlipayGroup, para);
       if (res.code === 1) {
         console.log('channelLink', res.data.channelLink);
+        const res = yield call(alipayService.queryAlipayGroup, para);
         window.location.href = res.data.channelLink;
       } else {
         Toast.info('没有查询到渠道')
@@ -123,8 +142,10 @@ export default {
         if(res.code==1){
           console.log('=',res.data.groupUrl);
           window.location.href= res.data.groupUrl;
+        }else if(res.code ==0){
+          Toast.info(res.message);
         }else{
-          Toast.info(res);
+
         }
       }else{
         Toast.info('请使用支付宝扫码打开!');

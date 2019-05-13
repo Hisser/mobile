@@ -157,13 +157,13 @@ export default {
             });
           }
         }
-      } else if(goodsDetails.code == 2) {
+      }/* else if(goodsDetails.code == 2) {
         alert('未登录', '点击首页右上角头像进行登录', [
           { text: '取消', onPress: () => {window.history.back();} },
           { text: '确定', onPress: () => {window.location.href=window._global.share_sign_url; }},
         ])
 
-      }else{
+      }*/else{
 
         yield put({type: 'saveInfo', payload: {goodsInfo: [], details: null}});
       }
@@ -237,11 +237,11 @@ export default {
       let couponUrl = para.couponUrl;
       let plat = para.plat;
       let res = {code: 1};
-      if (hascoupon) {
+     /* if (hascoupon) {
         res = yield call(couponServices.checkCopuponAccount);
       }
 
-      if (res.code === 1) {
+      if (res.code === 1) {*/
         if (plat === '1') {
           let ua = navigator.userAgent.toLowerCase();
           let match = ua.match(/MicroMessenger/i);
@@ -256,11 +256,21 @@ export default {
         } else {
           window.location.href = couponUrl;
         }
-      } else if (res.code == 3) {
-        alert("优惠券额度不足，请先充值！");
-      }
+      // } else if (res.code == 3) {
+      //   alert("优惠券额度不足，请先充值！");
+      // }
 
     },
+
+
+    *createCouponPoster({payload: para},{call,put}){
+      const res = yield call(couponServices.createCouponPoster,para);
+      if(res.code==1){
+        let url = res.data.split("/")[4].split("?")[0];
+        yield put(routerRedux.push(`/share/${url}`));
+      }
+
+    }
   },
 
 

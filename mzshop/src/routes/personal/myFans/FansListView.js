@@ -6,7 +6,7 @@ import {ListView,Flex,WhiteSpace} from 'antd-mobile';
 import * as dataUtils from "../../../utils/dateUtils";
 
 
-function genData(pIndex = 0, numRows = 20) {
+function genData(pIndex = 0, numRows = 10) {
   const dataBlob = {};
   for (let i = 0; i < numRows; i++) {
     const ii = (pIndex * numRows) + i;
@@ -18,7 +18,7 @@ function genData(pIndex = 0, numRows = 20) {
 class FansListView extends React.Component {
 
   static defaultProps = {
-    pageSize: 20,
+    pageSize: 10,
     pageNo: 1,
     hasMore:false,
     fansList:[],
@@ -70,10 +70,10 @@ class FansListView extends React.Component {
 
 
   componentWillReceiveProps(nextProps) {
-    console.log('----',nextProps);
     if (nextProps.fansList !== this.props.fansList) {
       if ((nextProps.fansList === null || nextProps.fansList.length === 0) && nextProps.pageNo <= 1) {
         this.rData = [];
+
         this.setState({
           dataSource: this.state.dataSource.cloneWithRows(this.rData),
           isLoading: false,
@@ -82,11 +82,16 @@ class FansListView extends React.Component {
       } else {
         if (nextProps.pageNo === 1) {
           this.rData = genData(nextProps.pageNo-1,nextProps.pageSize);
-          this.setState({
-            dataSource: this.state.dataSource.cloneWithRows(this.rData),
-            isLoading: false,
-            loadingInfo: '',
-          });
+          if(nextProps.count <=10){
+
+            this.setState({
+              dataSource: this.state.dataSource.cloneWithRows(this.rData),
+              isLoading: false,
+              loadingInfo: '已全部加载,共计:'+nextProps.count+'人',
+            });
+            console.log(this.state.loadingInfo);
+          }
+
         } else {
           this.rData = {...this.rData, ...genData(nextProps.pageNo-1,nextProps.pageSize)};
           this.setState({
@@ -96,9 +101,10 @@ class FansListView extends React.Component {
           });
         }
       }
-      if (!this.props.hasMore) {
+      /*if (!this.props.hasMore) {
+        console.log('adasd');
         this.setState({loadingInfo: ''});
-      }
+      }*/
     }
   }
 
@@ -158,6 +164,7 @@ class FansListView extends React.Component {
 
 
     return (
+
       <div >
         <ListView
           dataSource={this.state.dataSource}

@@ -122,8 +122,6 @@ class ActivityNewer  extends React.Component{
           },
         });
       }
-
-
     }
 
   render(){
@@ -168,10 +166,10 @@ class ActivityNewer  extends React.Component{
             <div  style={{paddingTop:'0.3rem'}}>
             <Flex style={{width:'6rem',margin:'0 auto'}}>
                <Flex.Item >
-                 <Button type="warning" style={{backgroundColor:'#CA2B30',color:'white',borderRadius:'0.3rem',  fontFamily:'Microsoft YaHei',}}
+                 <button className={style.button1}
                  onClick={this.get}
                  >
-                   领取并下载</Button>
+                   领取并下载</button>
 
                </Flex.Item>
             </Flex>
@@ -321,5 +319,6 @@ const styles = {
     width: '100%',
     height:'100%'
   },
+
 }
 

@@ -53,3 +53,16 @@
   height: 100%;
   width: 100%;
 }
+
+.button1{
+  font-size:0.38rem;
+  font-family: "Microsoft YaHei";
+  color:#fff;
+  background-color: #ED3D38;
+  border:0.2rem solid #ED3D38;
+  border-radius: 0.2rem;
+  -webkit-border-radius:0.2rem;
+  -moz-border-radius:0.2rem;
+  width:6rem;
+  height:1rem;
+}

@@ -27,8 +27,13 @@ import Redpack from "./routes/personal/redPack/Redpack";
 import AliPay from "./routes/aliPay/AliPay";
 import AliPayNew from "./routes/aliPay/AliPayNew";
 import AlipayCode from "./routes/aliPay/AlipayCode";
+import ShareImg from "./routes/aliPay/ShareImg";
 import InviteNewerAli from "./routes/aliPay/InviteNewerAli";
 import MyFans from "./routes/personal/myFans/MyFans";
+import Personal from "./routes/personal/Personal";
+import Wallet from "./routes/personal/wallet/Wallet";
+import Mobile from "./routes/personal/mobile/Mobile";
+
 
 const { ConnectedRouter } = routerRedux;
 function RouterConfig({history,app}) {
@@ -165,9 +170,23 @@ function RouterConfig({history,app}) {
     path:"/myFans",
     name:"MyFans",
     component:MyFans
+  },{
+    path:"/personal",
+    name:"Personal",
+    component:Personal
+  },{
+    path:"/wallet",
+    name:"Wallet",
+    component:Wallet
+  },{
+    path:"/mobile",
+    name:"Mobile",
+    component:Mobile
+  },{
+    path:'/share/:url',
+    name:'ShareImg',
+    component:ShareImg
   }];
-
-
 
 
   return (
@@ -181,8 +200,6 @@ function RouterConfig({history,app}) {
           })
         }
       </Switch>
-
-
     </Router>
   );
 }

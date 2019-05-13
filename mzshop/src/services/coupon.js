@@ -258,3 +258,12 @@ export function genJdGoodsPromUrl(para) {
   return fetchPost('/api/gateWay', data);
 }
 
+//创建分享海报
+export  function createCouponPoster(para) {
+  let data={
+    service:'createCouponPoster',
+    from : para.from,
+    goodsId: para.goodsId
+  }
+  return fetchPost('/api/gateWay', data);
+}
