@@ -225,6 +225,7 @@ export function querygoodsImgList(para) {
             imgSrc = imgSrc.substring(5, imgSrc.length - 1);
             let img = imgSrc.startsWith("http") ? imgSrc : "http:" + imgSrc;
             if (!img.endsWith('.gif')){
+              // img +='_400x400q100.jpg'
               arrayImg.push(img);  //把获取到的图片地址添加到列表中
             }
           }
@@ -267,3 +268,6 @@ export  function createCouponPoster(para) {
   }
   return fetchPost('/api/gateWay', data);
 }
+
+
+

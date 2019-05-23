@@ -7,7 +7,7 @@ import GoodsListView from '../../components/goodsListView/GoodsListView.js'
 import {routerRedux} from "dva/router";
 import styles from './MallPage.css';
 import imgBackPrevious from "../../assets/backPrevious2.png";
-import imgBannerJd from "../../assets/banner/jd_banner.png";
+import imgBannerJd from "../../assets/banner/jingdong.png";
 import imgBannerTaobao from "../../assets/banner/taobao_banner.png";
 
 

@@ -31,6 +31,7 @@ import * as CommonUtil from "./utils/CommonUtil";
 import * as wechatApi from "./wechatApi";
 import {fetchPost} from "./utils/http";
 import shareAli from "./models/shareAli";
+import play from "./models/play";
 
 
 // 1. Initialize
@@ -65,11 +66,18 @@ app.model(alipayGroup);
 app.model(myFans);
 app.model(personal);
 app.model(shareAli);
+app.model(play);
 
 
-
+  let sceneId = CommonUtil.getQueryString("sceneId");
+  let hbToken = CommonUtil.getQueryString("hbToken");
+  if(sceneId !=null && sceneId !='null') {
+    window.localStorage.setItem('sceneId', sceneId);
+    window.localStorage.setItem('hbToken', hbToken);
+  }
   let token = null;
   let accessToken = CommonUtil.getQueryString("accessToken");
+
   if (accessToken) {
     let userSecKey = CommonUtil.getQueryString("userSecKey");
 
@@ -104,6 +112,7 @@ app.model(shareAli);
     if (CommonUtil.isWeiXin()) {//微信
       window.localStorage.setItem('from', from);
       window.location.href = serverUrl + "/weChat/redirect?requestUrl=" + url;
+
     }else if (CommonUtil.isAlipay()) {//支付宝
       // window.location.href = serverUrl + "/alipay/redirect?requestUrl=" + url;
     }else{

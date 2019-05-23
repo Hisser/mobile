@@ -4,6 +4,9 @@ import Nav from "./components/Nav";
 import {connect} from "dva/index";
 import {routerRedux} from "dva/router";
 import userIco from '../../assets/user.png';
+import close from '../../assets/close.png';
+import oneCoupon from '../../assets/oneCoupon.png';
+import oneCouponed from '../../assets/oneCoupon2.png';
 import {Flex, WhiteSpace, NavBar, Button, Icon,Toast,Modal} from 'antd-mobile';
 import $ from "jquery";
 import {fetchPost} from "../../utils/http";
@@ -84,21 +87,100 @@ turnToSearch=()=> {
     this.props.dispatch(routerRedux.push('/search'));
   };
 
+  close =()=>{
+    this.props.dispatch({
+      type: 'mainpage/closeCoupon',
+      payload: {},
+    })
+  }
+  //领取新人红包
+  get = () =>{
+    this.props.dispatch({
+      type: 'mainpage/getCoupon',
+      payload: {
+
+      },
+    })
+  }
 
   render() {
     let userImg = userIco;
     if (this.props.mainpage.userIco) {
       userImg = this.props.mainpage.userIco;
     }
-
     return (
+
       <div>
       <Nav a={ this.turnToSearch } Nav={ this.props.mainpage.NavList}
            goodsSelected={this.props.mainpage.goodsSelected}
            showActivity={this.props.mainpage.showActivity}
       />
+        {
+          this.props.mainpage.show  ?
+            <div>
+            <div id={'zezao'} style={{
+              backgroundColor: '#2a2b2c',
+              zIndex: '991',
+              position: 'fixed',
+              opacity: '0.6',
+              top: '0',
+              height: '100%',
+              width: '100%',
+              textAlign:'center'
+            }}>
+            </div>
+            <div id={'zezao'} style={{position: 'fixed', zIndex: '995', top: '30%', left: '1rem'}}>
+             <img src={oneCoupon} onClick={this.get} style={{width: '100%', marginTop: '0rem' }}/>
+              {/*<img src={close} onClick={this.close}
+                   style={{position: 'relative', width: '0.8rem', height: '0.8rem',top: '1.5rem',marginLeft: '3.6rem'}}/>*/}
+            </div>
+
+            </div>
+            : null
+        }
+
+        {
+          this.props.mainpage.show1  ?
+            <div onClick={this.close}>
+              <div id={'zezao'} style={{
+                backgroundColor: '#2a2b2c',
+                zIndex: '991',
+                position: 'fixed',
+                opacity: '0.6',
+                top: '0',
+                height: '100%',
+                width: '100%',
+                textAlign:'center'
+              }} >
+              </div>
+              <div id={'zezao'} style={{position: 'fixed', zIndex: '995', top: '0.1rem', left: '1rem'}}>
+                <img src={oneCouponed}  style={{width: '100%', marginTop: '0rem' }}/>
+              </div>
+              {
+                this.props.mainpage.message !='' ?
+                  <div id={'zezao'} style={{position: 'fixed', zIndex: '996', top: '65%',textAlign:'center',height:'2rem',width:'100%'}}>
+                  <span style={{fontFamily:'Microsoft YaHei',fontSize:'0.5rem',color:'#fed269'}}> {this.props.mainpage.message}</span>
+                </div> :
+                  <div id={'zezao'} style={{position: 'fixed', zIndex: '996', top: '55%',textAlign:'center',height:'2rem',width:'100%'}}>
+                    <span style={{fontFamily:'Microsoft YaHei',fontSize:'0.5rem',color:'#fed269'}}> {this.props.mainpage.message1}</span><br/>
+                    <WhiteSpace/>
+                    <WhiteSpace/>
+                    <span style={{fontFamily:'Microsoft YaHei',fontSize:'2rem',color:'#fed269'}}> {this.props.mainpage.message2}</span><br/>
+                    <WhiteSpace/>
+                    <WhiteSpace/><WhiteSpace/>
+                    <WhiteSpace/>
+
+                    <span style={{fontFamily:'Microsoft YaHei',fontSize:'0.35rem',color:'#fed269'}}> {this.props.mainpage.message3}</span>
+                  </div>
+              }
+
+
+            </div>
+            : null
+        }
 
       </div>
+
     )
 
   }

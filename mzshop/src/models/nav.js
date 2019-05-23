@@ -20,7 +20,7 @@ export default {
     isShow:true,
     showActivity:true,
     adList: [],//广告
-    bannerAd:[],//banner广告
+    bannerAd:{},//banner广告
     flyAd:[],//弹屏广告
     channels:[],//频道
     grids:[],//导航
@@ -65,36 +65,20 @@ export default {
         showAlert:payload.showAlert
       }
     },
-
-    saveAdList(state, {payload}){
+    saveHomeList(state,{payload}){
       return {
         ...state,
         adList: [...payload.adlist],
+        bannerAd: payload.bannerlist,
+        flyAd: [...payload.flylist],
+        channels:[...payload.channels],
+        grids:[...payload.grids],
       }
     },
-
-    saveBanner(state, {payload}){
+    changeNo (state,{payload}){
       return {
         ...state,
-        bannerAd: [...payload.list],
-      }
-    },
-    saveFlyAd(state, {payload}){
-      return {
-        ...state,
-        flyAd: [...payload.list],
-      }
-    },
-    saveChannels(state, {payload}){
-      return  {
-        ...state,
-        channels:[...payload.list],
-      }
-    },
-    saveGrids(state,{payload}){
-      return {
-        ...state,
-        grids:[...payload.list]
+        params:payload.params
       }
     }
 
@@ -129,13 +113,13 @@ export default {
       //整个homelist
       const homeList = yield call(goodsService.queryHomeList);
       if(homeList.code==1){
-        console.log(homeList.data);
-        yield put({type: 'saveAdList', payload: {adlist: homeList.data.mainAds!=null ? homeList.data.mainAds :[]}});//广告
-        yield put({type: 'saveBanner', payload: {list: homeList.data.bannerAds!=null ? homeList.data.bannerAds :[]}});//banner广告
-        yield put({type: 'saveFlyAd', payload: {list: homeList.data.popAds!=null ? homeList.data.popAds :[]}});//弹屏广告
-        yield put({type: 'saveChannels',payload: {list:homeList.data.channels}})//channels频道
-        yield put({type: 'saveGrids',payload: {list:homeList.data.grids}})//导航
-
+        yield put({type: 'saveHomeList',payload:{
+            adlist: homeList.data.mainAds!=null ? homeList.data.mainAds :[],
+            bannerlist: homeList.data.bannerAds!=null ? homeList.data.bannerAds :{},
+            flylist: homeList.data.popAds!=null ? homeList.data.popAds :[],
+            channels:homeList.data.channels,
+            grids:homeList.data.grids,
+          }})
       }
     },
 
@@ -187,7 +171,7 @@ export default {
       const mogujie =yield call (couponServices.getMoGujieGid);
       console.log('mogujiedata',mogujie);
       if(mogujie.code==1){
-        let newLink = payload.link+mogujie.channelId+'&target=https%3A%2F%2Fm.mogujie.com&asso=0';
+        let newLink = payload.link.replace('gid=0','gid='+mogujie.channelId);
         console.log('mogujie',newLink);
         window.location.href=newLink;
       }else{
@@ -204,6 +188,16 @@ export default {
         }else{
           Toast.info('验证码错误！')
         }
+    },
+    *changePageNo({payload},{call,put}){
+      let params={
+          pageNo: 0,
+          pageSize: 20,
+          hasMore: false,
+          channel: null,
+          catId: 0,
+      }
+      yield  put({type:'changeNo',payload :{params:params}})
     }
 
   },

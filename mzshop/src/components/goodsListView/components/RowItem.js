@@ -12,6 +12,7 @@ import imgBaoyou from "../../../assets/baoyou.png";
 import imgCoupon from "../../../assets/quan2.png";
 import imgFanimg from "../../../assets/fan.png";
 import imgDao from "../../../../src/assets/daoshou.png";
+import * as CommonUtil from "../../../utils/CommonUtil";
 
 class RowItem extends React.Component {
   constructor(props) {
@@ -130,7 +131,12 @@ class RowItem extends React.Component {
               this.turnToGoodsDetail(leftItem.from, leftItem.goodsId)
             }}>
               <div className={styles.commodityContainer}>
-                <img className={styles.commodityCardImg} src={leftItem.picUrl}/>
+                {
+                  CommonUtil.isAndroidOrIOS()=='Android' /*&&(leftItem.from =='taobao'||leftItem.from =='tmall')*/ ?
+                    <img className={styles.commodityCardImg} src={leftItem.picUrl+"_.webp"}/>
+                    : <img className={styles.commodityCardImg} src={leftItem.picUrl}/>
+                }
+
               </div>
 
               <div className={styles.commodityCardMsg}>
@@ -216,7 +222,11 @@ class RowItem extends React.Component {
                 this.turnToGoodsDetail(rightItem.from, rightItem.goodsId)
               }}>
                 <div className={styles.commodityContainer}>
-                  <img className={styles.commodityCardImg} src={rightItem.picUrl}/>
+                  {
+                    CommonUtil.isAndroidOrIOS() == 'Android' /*&& (leftItem.from == 'taobao' || leftItem.from == 'tmall')*/ ?
+                      <img className={styles.commodityCardImg} src={rightItem.picUrl + "_.webp"}/>
+                      :<img className={styles.commodityCardImg} src={rightItem.picUrl}/>
+                  }
                 </div>
 
                 <div className={styles.commodityCardMsg}>

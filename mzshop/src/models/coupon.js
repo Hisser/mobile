@@ -200,10 +200,13 @@ export default {
       const cutPrice = yield call(couponServices.joinCutPrice, {from, goodsId});
     },
 
-    *clearGoodsInfo({payload}, {call, put}){
+    *clearGoodsInfo({payload}, {take,call, put}){
       yield put({type: 'saveInfo', payload: {goodsInfo: [], details: []}});
       yield put({type: 'savePwd', payload: {pwd: null}});
+      yield put({type: 'nav/changePageNo',payload:payload});
+      yield put(routerRedux.goBack());
     },
+
 
     *queryUserTaoCashByGoods({payload: para}, {call, put}){
       let goodsId = para.goodsIds;

@@ -161,7 +161,7 @@ class GoodsListView2 extends React.Component {
             <div style={{paddingTop:'1rem',textAlign: 'center',width:'100%', }}>
               <p style={{color:'#ff6666'}}>{this.state.loadingInfo}</p>
 
-            <footer>
+           {/* <footer>
               <div>
                 <div >
                   <ul style={{textAlign:'center',listStyle:'none'}}>
@@ -182,7 +182,7 @@ class GoodsListView2 extends React.Component {
                 </div>
               </div>
             </footer>
-
+*/}
           </div>)}
           renderRow={row}
           pageSize={10}

@@ -10,7 +10,7 @@ class OrderList extends React.Component {
 
 
   backPrevious = () => {
-     this.props.dispatch(routerRedux.push("/"));
+     this.props.dispatch(routerRedux.goBack());
   }
 
   query =(index)=>{

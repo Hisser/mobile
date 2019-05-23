@@ -4,6 +4,7 @@
 import pathToRegexp from 'path-to-regexp';
 import * as searchService from "../services/searchService";
 import * as goodsService from "../services/coupon";
+import {fetchPost,Post} from "../utils/http";
 
 export default {
   namespace: 'search',
@@ -13,6 +14,7 @@ export default {
     hasMore: true,
     goodsList: [],
     userQueryList: [],
+    hotSearchList:[]
   },
 
   reducers: {
@@ -52,6 +54,12 @@ export default {
         userQueryList: [...payload.userQueryLists],
       };
     },
+    saveHotSearchList(state,{payload}){
+      return {
+        ...state,
+        hotSearchList: [...payload.hotSearchList],
+      }
+    }
   },
 
   effects: {
@@ -59,9 +67,19 @@ export default {
     *fetch({payload: para}, {call, put}) {
       yield put({type: 'savePlat', payload: {plat: para.plat}});
       yield put({type: 'saveKeyWord', payload: {keyWord: para.searchWord}});
+
+
+
     },
 
     *userSearchList({payload}, {call, put}){
+
+      // //淘宝热搜
+      const list = yield call(searchService.queryHotSearch);
+      if(list.length>0){
+        yield put({type: 'saveHotSearchList', payload: {hotSearchList: list}});
+      }
+
       //查询搜索结果
       const res = yield call(searchService.querySearchRecord);
       if (res.code === 1) {

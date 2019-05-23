@@ -125,6 +125,7 @@ class GoodsListView extends React.Component {
     } else {
       this.setState({loadingInfo: ''});
       this.setState({isLoading: false});
+
     }
   }
 
@@ -178,7 +179,7 @@ class GoodsListView extends React.Component {
             <div style={{paddingTop:'1rem',textAlign: 'center',width:'100%', }}>
               <p style={{color:'#ff6666'}}>{this.state.loadingInfo}</p>
 
-            <footer>
+            {/*<footer>
               <div>
                 <div >
                   <ul style={{textAlign:'center',listStyle:'none'}}>
@@ -198,7 +199,7 @@ class GoodsListView extends React.Component {
                   </ul>
                 </div>
               </div>
-            </footer>
+            </footer>*/}
 
           </div>)}
           renderRow={row}
@@ -206,7 +207,7 @@ class GoodsListView extends React.Component {
           useBodyScroll
           scrollRenderAheadDistance={1000}
           onEndReached={this.onEndReached}
-          onEndReachedThreshold={1000}
+          onEndReachedThreshold={100}
         />
       </div>
     )

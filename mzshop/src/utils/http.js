@@ -12,6 +12,7 @@ axios.defaults.baseURL = window._global.url.host;
 
 // http request 拦截器
 axios.interceptors.request.use(
+
   config => {
     config.headers = {
       'Content-Type': 'application/x-www-form-urlencoded'
@@ -148,3 +149,4 @@ export function fetchPost(url, params = {}) {
     });
   });
 }
+

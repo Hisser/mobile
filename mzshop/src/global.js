@@ -1,4 +1,4 @@
-   export const prefix = process.env.NODE_ENV === 'production' ? 'https://www.yuezijie.cn' : 'http://192.168.9.109:8080';
+    export const prefix = process.env.NODE_ENV === 'production' ? 'https://www.yuezijie.cn' : 'http://192.168.9.109:8080';
  // export const prefix = process.env.NODE_ENV === 'production' ? 'https://yfb.yuezijie.cn' : 'http://192.168.9.109:8080';
 // export const prefix = 'https://yfb.yuezijie.cn';
 
@@ -9,14 +9,15 @@
     www: 'https://www.yuezijie.cn',
     imgcdn: 'https://oss.yuezijie.cn',
   },
-     appId : 'wxb089255bb53e1dc0',               //正式
-     share_sign_url : 'http://o.yuezijie.cn/',   //正式
-   // appId: 'wx871b1a2640914c9f',                      //预发布
-   // share_sign_url : 'http://uat.yuezijie.cn/',       //预发布
+      appId : 'wxb089255bb53e1dc0',               //正式
+      share_sign_url : 'http://o.yuezijie.cn/',   //正式
+  // appId: 'wx871b1a2640914c9f',                      //预发布
+  // share_sign_url : 'http://uat.yuezijie.cn/',       //预发布
     // share_sign_url : 'http://localhost:8000/',
   appStore_url: 'https://itunes.apple.com/cn/app/id1386122411',//苹果应用商店下载地址
   yyb_url: 'https://android.myapp.com/myapp/detail.htm?apkName=com.qianshou.zshop&ADTAG=mobile',//应用宝下载地址
   server_url: 'https://www.yuezijie.cn/resources/app/花得值.apk',//服务器下载地址
+    tj_url:'https://suggest.taobao.com/sug?area=sug_hot&wireless=2&code=utf-8&nick=&sid=null&callback=hotWordsCalllBack',
   kdt_id: 1,
   run_mode: 'online',
   debug: false,

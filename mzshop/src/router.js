@@ -33,6 +33,7 @@ import MyFans from "./routes/personal/myFans/MyFans";
 import Personal from "./routes/personal/Personal";
 import Wallet from "./routes/personal/wallet/Wallet";
 import Mobile from "./routes/personal/mobile/Mobile";
+import Play from "./routes/play/Play";
 
 
 const { ConnectedRouter } = routerRedux;
@@ -186,6 +187,10 @@ function RouterConfig({history,app}) {
     path:'/share/:url',
     name:'ShareImg',
     component:ShareImg
+  },{
+    path:'/playIntd/:plat?',
+    name:'Play',
+    component:Play
   }];
 
 

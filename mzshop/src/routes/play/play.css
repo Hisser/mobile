@@ -1,0 +1,52 @@
+.sectionTop1 {
+  padding-top: 1.5rem;
+}
+
+.sectionTop2 {
+  padding-top: 1rem;
+}
+
+.fixedTop {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fdde4a;
+}
+
+.navTitle {
+  color: #333;
+  font-weight: 600;
+  font-size: 0.45rem;
+}
+
+.back {
+  color: #333;
+  font-size: 0.36rem;
+}
+
+.back_icon {
+  color: #333;
+}
+
+.navbar {
+  background-color: #fdde4a;
+  margin-top: 0.2rem;
+  margin-bottom: -0.2rem;
+}
+
+.div {
+  border-radius:0.2rem;
+  background-color: #F25642;
+  height: 2.2rem;
+  width: 110%;
+  margin-left: -5%;
+}
+.div2 {
+  border-radius:0.2rem;
+  background-color: #F25642;
+  height: 1.6rem;
+  width: 110%;
+  margin-left: -5%;
+}

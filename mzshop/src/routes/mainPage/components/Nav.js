@@ -37,7 +37,7 @@ class Nav extends React.Component {
   };
 
   componentDidMount() {
-    this.queryGoodsListFromTopChannel(1);
+    // this.queryGoodsListFromTopChannel(1);
   }
 
   turnTo = () => {
@@ -343,17 +343,13 @@ class Nav extends React.Component {
           <div>
             <GoodsListView pageSize={this.props.nav.params.pageSize}
                            pageNo={this.props.nav.params.pageNo}
-                           hasMore={this.props.nav.params.hasMore}
+                           // hasMore={this.props.nav.params.hasMore}
+                           pageNo={this.props.nav.params.pageNo}
+                           hasMore={true}
                            goodsList={this.props.nav.goodsList}
                            changePageNo={this.queryGoodsListFromTopChannel}
                            turnToGoodsDetail={this.turnToGoodsDetail}/>
           </div>
-         {/* {
-            this.state.show ?  <div style={{position:'absolute',zIndex:1000,top:360,height:'1.2rem',lineHeight:'1.2rem',right:90}}
-                                    onClick={this.clickSendCode}>
-              丨&nbsp;&nbsp;{this.state.codeText}
-            </div>: null
-          }*/}
 
         </div>
       </div>

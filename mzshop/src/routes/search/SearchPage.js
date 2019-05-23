@@ -11,16 +11,6 @@ import CommonUtil from "../../utils/CommonUtil";
 const alert = Modal.alert;
 var wx = require('weixin-js-sdk');
 
-const HotSearch = [
-  {title: 'T恤 女'},
-  {title: '情侣装'},
-  {title: '凉鞋 女'},
-  {title: '耳机'},
-  {title: '小白鞋'},
-  {title: '口红'},
-  {title: '美瞳'},
-  {title: '短裤'},
-];
 
 const GoodsCategory = [
   {title: '女装'},
@@ -88,7 +78,7 @@ function SearchPage({dispatch, search}) {
           cancelText="搜索"
           maxLength={200}
           showCancelButton
-          className={styles.search_bar}/>
+          className={styles.search_bar} />
       </div>
 
       <div className={styles.flex_container}>
@@ -99,11 +89,16 @@ function SearchPage({dispatch, search}) {
                     onClick={() => SearchGoods(item.keyword, 0)}> {item.keyword}</Button>))}
         </Flex>
 
-        <div className={styles.sub_title}>热门搜索</div>
+        <div className={styles.sub_title}>推荐搜索</div>
         <Flex wrap="wrap">
-          {HotSearch.map((item, idx) => (
-            <Button inline key={idx} className={styles.btn_hot_search}
-                    onClick={() => SearchGoods(item.title, 0)}> {item.title}</Button>))}
+          {
+            search.hotSearchList.length>0 ?
+            search.hotSearchList.map((item, idx) => (
+              <Button inline key={idx} className={styles.btn_hot_search}
+                      onClick={() => SearchGoods(item, 0)}> {item}</Button>))
+              :null
+          }
+
         </Flex>
 
         <WhiteSpace size="lg"/>

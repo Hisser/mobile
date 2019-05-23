@@ -86,3 +86,12 @@ export function login(para) {
   }
   return fetchPost('/api/gateWay', data)
 }
+
+export function getCoupon(para) {
+  let data ={
+    service:'getWechatRedPacket',
+    token: window.localStorage.getItem('hbToken'),
+    channelId: window.localStorage.getItem('sceneId'),
+  }
+  return fetchPost('/api/gateWay', data);
+}

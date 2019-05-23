@@ -12,6 +12,7 @@ import imgCoupon from "../../../assets/quan2.png";
 import imgCouponbackimg2 from "../../../assets/couponAfter2.png";
 import imgFanimg from "../../../assets/fan.png";
 import imgDao from "../../../../src/assets/daoshou.png";
+import * as CommonUtil from "../../../utils/CommonUtil";
 
 
 class SearchResultItem extends React.Component {
@@ -84,7 +85,12 @@ class SearchResultItem extends React.Component {
       <div>
         <Flex align='start' style={{marginTop: '0.1rem'}} onClick={() => this.turnToGoodsDetail(from, goodsId)}>
           <Flex.Item style={{margin: '0.2rem 0 0 0.3rem'}}>
-            <img src={picUrl} style={{width: '3.6rem', height: '3.6rem', borderRadius: '0.2rem'}}/>
+            {
+              CommonUtil.isAndroidOrIOS()=='Android'  ?
+                <img src={picUrl+"_.webp"} style={{width: '3.6rem', height: '3.6rem', borderRadius: '0.2rem'}}/>
+                :<img src={picUrl} style={{width: '3.6rem', height: '3.6rem', borderRadius: '0.2rem'}}/>
+            }
+
           </Flex.Item>
 
           <Flex.Item style={{margin: '0.36rem 0.3rem 0 -0.75rem', padding: 0}}>

@@ -9,7 +9,8 @@ import {connect} from "dva/index";
 import {Carousel, Flex, Modal} from 'antd-mobile';
 import copy from 'copy-to-clipboard';
 import close from '../../../assets/close.png';
-import CommonUtil from '../../../utils/CommonUtil';
+import * as CommonUtil from '../../../utils/CommonUtil';
+
 
 const alert = Modal.alert;
 
@@ -89,9 +90,9 @@ class TodayRecommend extends React.Component {
   }
 
 
-  turnToGrid = (url,idx) => {
-    console.log(url,idx);
-    if(idx=='1'||idx =='7'||idx =='9'||idx =='11'||idx =='14'||idx =='20'){//淘宝相关的
+  turnToGrid = (url,plat) => {
+    console.log(url,plat);
+    if(plat=='taobao'||plat =='tmallGlobal'||plat =='jhs'||plat =='tmallMarket'||plat =='flyPig'||plat =='gift'){//淘宝相关的
       copy(url);
       window.location.href = url;
     }else {
@@ -102,19 +103,22 @@ class TodayRecommend extends React.Component {
           { text: '确定', onPress: () => {console.log('确认登录')}},
         ])
       }else {
-        if (idx == '13') {//蘑菇街
+        if(plat =='pdd'){//拼多多转链
+          this.props.turnToPddMall();
+        }else if(plat =='suning'){//苏宁
+          let link = url+"&sub_user="+userId;
+          window.location.href = link;
+        }else if (plat == 'mogu') {//蘑菇街
           this.props.dispatch({
             type: 'nav/getMgjChannelId',
             payload: {
               link: url
             }
           });
-        } else if (idx == '5') {//唯品会
-
+        } else if (plat == 'vip') {//唯品会
           let Link = url + '&chan=' + userId;
-          console.log('vip链接',Link);
           window.location.href = Link;
-        }else if(idx == '19'){
+        }else if(plat == 'invite'){
           if (CommonUtil.isAlipay()) {
             if (CommonUtil.isAndroidOrIOS() == 'Android') {
               window.location.href = window._global.server_url;
@@ -134,27 +138,47 @@ class TodayRecommend extends React.Component {
   }
 
   adDetail = (item) => {
-    if (item.type == 'INNER') {
-      this.props.dispatch(routerRedux.push(`/ad/adDetail/${item.adId}`));
-    } else if (item.type == 'OUTER') {
+    let userId =window.localStorage.getItem('userId');
+    if(userId == null){
+      alert('未登录', '点击右上角头像进行登录', [
+        { text: '取消', onPress: () => {console.log('取消登录')} },
+        { text: '确定', onPress: () => {console.log('确认登录')}},
+      ])
+    }else {
+      if (item.type == 'INNER') {
+        this.props.dispatch(routerRedux.push(`/ad/adDetail/${item.adId}`));
+      } else if (item.type == 'OUTER') {
+
         if (item.plat == 'jd') {
           var link = item.adLink;
           this.props.dispatch({
             type: 'nav/changeJDUrl',
             payload: {link},
           })
-      } else {
-        window.location.href = item.adLink;
-      }
+        } else if (item.plat == 'suning') {
+          let link = item.adLink + "&sub_user=" + userId;
+          window.location.href = link;
+        } else if(item.plat == 'vipshop'){
+          let Link = item.adLink + '&chan=' + userId;
+          console.log(Link);
+           window.location.href = Link;
+        } else if(item.plat=='guomei'){
+          let Link = item.adLink + '&feedback=' + userId;
+           window.location.href = Link;
+        }else {
+          console.log('2221',item.type);
+           window.location.href = item.adLink;
+        }
 
-    } else {//native
-      if(item.adLink == 'JDActivityPage'){
-        this.props.dispatch(routerRedux.push(`/onepointbuy`));
-      }else {
-        window.location.href = item.adLink;
+      } else {//native
+        if (item.adLink == 'JDActivityPage') {
+          this.props.dispatch(routerRedux.push(`/onepointbuy`));
+        } else {
+          console.log('111');
+          window.location.href = item.adLink;
+        }
       }
     }
-
   }
 
 
@@ -179,12 +203,13 @@ class TodayRecommend extends React.Component {
     window.localStorage.setItem(item.adId, JSON.stringify({show: false, id: item.adId, time: curTime}));
   }
 
-  componentDidMount(){
+  componentWillMount(){
     this.props.dispatch({
       type: 'nav/queryHomeList',
       payload: {},
     })
   }
+
 
 
 
@@ -217,71 +242,6 @@ class TodayRecommend extends React.Component {
     }
 
     var showActivity=false;
-    // if(!window.localStorage.getItem('coupon')){
-    //   showActivity=true;
-    // }
-
-
-
-/*
-    let flyAd = this.props.flyAd[0];
-    let picNine1 = '';
-    let picNine2 = '';
-    let picBrand1 = '';
-    let picBrand2 = '';
-    let picMother1 = '';
-    let picMother2 = '';
-    let picJhs = '';
-    let picJd = '';
-    let priceNine = '';
-    let titleNine = '';
-
-    if (this.props.goodsSelected != null) {
-      if (this.props.goodsSelected.jhsPin != undefined && this.props.goodsSelected.jhsPin != null) {
-        picJhs = this.props.goodsSelected.jhsPin.picUrl;
-      }
-      if (this.props.goodsSelected.jdPin != undefined && this.props.goodsSelected.jdPin != null) {
-        picJd = this.props.goodsSelected.jdPin.picUrl;
-      }
-    }
-
-    let goodsSelected = this.props.goodsSelected;
-    if (goodsSelected != null) {
-      if (goodsSelected.nineReco != null && Array.isArray(goodsSelected.nineReco)) {
-        if (goodsSelected.nineReco.length > 0) {
-          picNine1 = this.props.goodsSelected.nineReco[0].picUrl;
-          let priceTemp = this.props.goodsSelected.nineReco[1].price;
-          if (priceTemp !== undefined && priceTemp != null) {
-            priceNine = '¥' + priceTemp;
-          }
-        }
-        if (goodsSelected.nineReco.length > 1) {
-          picNine2 = this.props.goodsSelected.nineReco[1].picUrl;
-          let titleTemp = this.props.goodsSelected.nineReco[1].title;
-          if (titleTemp !== undefined && titleTemp != null && titleTemp.length > 0) {
-            titleNine = titleTemp.substring(0, 6);
-          }
-        }
-      }
-
-      if (goodsSelected.brandReco != null && Array.isArray(goodsSelected.brandReco)) {
-        if (goodsSelected.brandReco.length > 0) {
-          picBrand1 = this.props.goodsSelected.brandReco[0].picUrl;
-        }
-        if (goodsSelected.brandReco.length > 1) {
-          picBrand2 = this.props.goodsSelected.brandReco[1].picUrl;
-        }
-      }
-
-      if (goodsSelected.motherReco != null && Array.isArray(goodsSelected.motherReco)) {
-        if (goodsSelected.motherReco.length > 0) {
-          picMother1 = this.props.goodsSelected.motherReco[0].picUrl;
-        }
-        if (goodsSelected.motherReco.length > 1) {
-          picMother2 = this.props.goodsSelected.motherReco[1].picUrl;
-        }
-      }
-    }*/
 
     let swiperAd = [];
     this.props.nav.adList.map((item, idx) => (
@@ -290,14 +250,13 @@ class TodayRecommend extends React.Component {
     ))
 
     let bannerAd = [];
-    this.props.nav.bannerAd.map((item, idx) => (
-      item.plat == 'jd' ? bannerAd.push(item) : null
-    ))
+   if(this.props.nav.bannerAd !=null){
+     this.props.nav.bannerAd.plat == 'jd' ? bannerAd.push(this.props.nav.bannerAd) : null
+    }
     let channlesItem =[];
     if(this.props.nav.channels.length>0){
       channlesItem =  this.props.nav.channels;
     }
-
 
     return (
       <div>
@@ -309,7 +268,7 @@ class TodayRecommend extends React.Component {
                   <div>
                     <Carousel autoplay={true} infinite={true}>
                       {swiperAd.map((item, idx) => (
-                        <img key={idx} src={`${item.adCode}?x-oss-process=style/w750`} alt='图片加载失败'
+                        <img key={idx} src={`${item.adCode}?x-oss-process=style/w_new`} alt='图片加载失败'
                              onClick={() => this.adDetail(item)}
                              style={{width: '100%', height: '3.5rem'}}/>
                       ))}
@@ -321,66 +280,13 @@ class TodayRecommend extends React.Component {
 
               {/* 淘宝京东天猫以及活动导航  */}
               <div style={{marginTop: '0.3rem', backgroundColor: 'white',width:'100%'}}>
-                {/*<div style={{width: '100%', height: '0.2rem'}}>
-                </div>
-
-                <div style={{width: '16.6%', display: 'inline-block', position: 'relative'}}>
-                  <div onClick={() => this.turnToMall('taobao')}>
-                    <div style={{height: '1rem', width: '1rem', margin: '0 auto'}}>
-                      <img src={taobao} style={{height: '1rem', width: '100%'}}/>
-                    </div>
-                    <p style={{textAlign: 'center', lineHeight: '0.2rem',fontFamily:'Microsoft YaHei', fontSize: '0.3rem', color: '#5a5a5a'}}>淘宝</p>
-                  </div>
-                </div>
-
-                <div style={{width: '16.6%', display: 'inline-block', position: 'relative'}}>
-                  <div onClick={() => this.turnToMall('jd')}>
-                    <div style={{height: '1rem', width: '1rem', margin: '0 auto'}}>
-                      <img src={jd_circle} style={{height: '1rem', width: '100%'}}/>
-                    </div>
-                    <p style={{textAlign: 'center', lineHeight: '0.2rem',fontFamily:'Microsoft YaHei', fontSize: '0.3rem', color: '#5a5a5a'}}>京东</p>
-                  </div>
-                </div>
-                <div style={{width: '16.6%', display: 'inline-block', position: 'relative'}}>
-                  <div onClick={() => this.turnToPddMall()}>
-                    <div style={{height: '1rem', width: '1rem', margin: '0 auto'}}>
-                      <img src={pingduoduo} style={{height: '1rem', width: '100%'}}/>
-                    </div>
-                    <p style={{textAlign: 'center', lineHeight: '0.2rem',fontFamily:'Microsoft YaHei', fontSize: '0.3rem', color: '#5a5a5a'}}>拼多多</p>
-                  </div>
-                </div>
-                <div style={{width: '16.6%', display: 'inline-block', position: 'relative'}}>
-
-                  <div style={{height: '1rem', width: '1rem', margin: '0 auto'}} onClick={() => this.changePage('1')}>
-                    <img src={helpfree} style={{height: '1rem', width: '100%'}}/>
-                  </div>
-                  <p style={{textAlign: 'center', lineHeight: '0.2rem',fontFamily:'Microsoft YaHei', fontSize: '0.3rem', color: '#5a5a5a'}}>京免单</p>
-
-                </div>
-                <div style={{width: '16.6%', display: 'inline-block', position: 'relative'}}>
-
-                  <div style={{height: '1rem', width: '1rem', margin: '0 auto'}} onClick={() => this.changePage('2')}>
-                    <img src={cutprice} style={{height: '1rem', width: '100%'}}/>
-                  </div>
-                  <p style={{textAlign: 'center', lineHeight: '0.2rem',fontFamily:'Microsoft YaHei', fontSize: '0.3rem', color: '#5a5a5a'}}>任性砍</p>
-
-                </div>
-                <div style={{width: '16.6%', display: 'inline-block', position: 'relative'}}>
-
-                  <div style={{height: '1rem', width: '1rem', margin: '0 auto'}} onClick={() => this.changePage('3')}>
-                    <img src={bigCoupon} style={{height: '1rem', width: '100%'}}/>
-                  </div>
-                  <p style={{textAlign: 'center', lineHeight: '0.2rem',fontFamily:'Microsoft YaHei', fontSize: '0.3rem', color: '#5a5a5a'}}>超级省</p>
-
-                </div>*/}
-
                 <div className={styles.grids}>
                   <div style={{display:'Flex',flexDirection:'row',flexWrap:'nowrap',width:'200%'}}>
                 { this.props.nav.grids.length>0 ?
                   this.props.nav.grids .map((item, idx) => (
                     idx<10 ?
                       <div key={idx} style={{width: '20%', display: 'inline-block', position: 'relative'}}>
-                        <div style={{height: '1rem', width: '1rem', margin: '0 auto'}} onClick={() => this.turnToGrid(item.url,idx+1)}>
+                        <div style={{height: '1rem', width: '1rem', margin: '0 auto'}} onClick={() => this.turnToGrid(item.url,item.plat)}>
                           <img src={item.icon} style={{height: '1rem', width: '100%'}}/>
                         </div>
                         <p style={{textAlign: 'center', lineHeight: '0.2rem',fontFamily:'Microsoft YaHei', fontSize: '0.3rem', color: '#5a5a5a'}}>{item.label}</p>
@@ -396,7 +302,7 @@ class TodayRecommend extends React.Component {
                       this.props.nav.grids .map((item, idx) => (
                         idx>9 && idx!= 17?
                           <div key={idx} style={{width: '20%', display: 'inline-block', position: 'relative'}}>
-                            <div style={{height: '1rem', width: '1rem', margin: '0 auto'}} onClick={() => this.turnToGrid(item.url,idx+1)}>
+                            <div style={{height: '1rem', width: '1rem', margin: '0 auto'}} onClick={() => this.turnToGrid(item.url,item.plat)}>
                               <img src={item.icon} style={{height: '1rem', width: '100%'}}/>
                             </div>
                             <p style={{textAlign: 'center', lineHeight: '0.2rem',fontFamily:'Microsoft YaHei', fontSize: '0.3rem', color: '#5a5a5a'}}>{item.label}</p>
@@ -471,7 +377,14 @@ class TodayRecommend extends React.Component {
                           <div style={{}}>
                           <div className={styles.channel_title_mother_big}>{channlesItem[0].title}</div>
                           <div className={styles.channel_title_mother_small}>{channlesItem[0].subTitle}</div>
-                          <div className={styles.channel_title_mother_img}><img src={channlesItem[0].pic0} className={styles.channel_img_small_9k9_left}/></div>
+                          <div className={styles.channel_title_mother_img}>
+                            {
+                              channlesItem[0].pic0.indexOf('img.alicdn.com') != -1 && CommonUtil.isAndroidOrIOS() =='Android' ?
+                                <img src={channlesItem[0].pic0 +"_.webp"} className={styles.channel_img_small_9k9_left}/> :
+                                <img src={channlesItem[0].pic0} className={styles.channel_img_small_9k9_left}/>
+                            }
+
+                          </div>
                           </div>
                         </div>
                       </Flex.Item>
@@ -479,7 +392,12 @@ class TodayRecommend extends React.Component {
                       <Flex.Item style={{margin: 0, marginRight: '1px'}} onClick={() => this.turn(channlesItem[0].channel)}>
                         <div className={styles.channel_img_item}>
                           <div style={{height: '0.1rem'}}/>
-                          <img src={channlesItem[0].pic1} className={styles.channel_img_big}/>
+                          {
+                            channlesItem[0].pic1.indexOf('img.alicdn.com') != -1 && CommonUtil.isAndroidOrIOS() =='Android' ?
+                              <img src={channlesItem[0].pic1 +"_.webp"} className={styles.channel_img_big}/> :
+                              <img src={channlesItem[0].pic1} className={styles.channel_img_big}/>
+                          }
+                          {/*<img src={channlesItem[0].pic1.indexOf('img.alicdn.com') != -1 ? channlesItem[0].pic1+'_300x300q85s150.jpg':channlesItem[0].pic1} className={styles.channel_img_big}/>*/}
                         </div>
                       </Flex.Item>
 
@@ -488,14 +406,26 @@ class TodayRecommend extends React.Component {
                           <div style={{height: '0.1rem'}}/>
                           <div className={styles.channel_title_mother_big}>{channlesItem[1].title}</div>
                           <div className={styles.channel_title_mother_small}>{channlesItem[1].subTitle}</div>
-                          <div className={styles.channel_title_mother_img}><img src={channlesItem[1].pic0} className={styles.channel_img_small_9k9_left}/></div>
+                          <div className={styles.channel_title_mother_img}>
+                            {
+                              channlesItem[1].pic0.indexOf('img.alicdn.com') != -1 && CommonUtil.isAndroidOrIOS() =='Android' ?
+                                <img src={channlesItem[1].pic0 +"_.webp"} className={styles.channel_img_small_9k9_left}/> :
+                                <img src={channlesItem[1].pic0} className={styles.channel_img_small_9k9_left}/>
+                            }
+                            {/*<img src={channlesItem[1].pic0.indexOf('img.alicdn.com') != -1 ? channlesItem[1].pic0+'_300x300q85s150.jpg':channlesItem[1].pic0} className={styles.channel_img_small_9k9_left}/>*/}
+                          </div>
                         </div>
                       </Flex.Item>
 
                       <Flex.Item style={{margin: 0, marginRight: '1px'}} onClick={() => this.turnToMall(channlesItem[1].channel)}>
                         <div className={styles.channel_img_item}>
                           <div style={{height: '0.1rem'}}/>
-                          <img src={channlesItem[1].pic1} className={styles.channel_img_big}/>
+                          {
+                            channlesItem[1].pic1.indexOf('img.alicdn.com') != -1 && CommonUtil.isAndroidOrIOS() =='Android' ?
+                              <img src={channlesItem[1].pic1 +"_.webp"} className={styles.channel_img_big}/> :
+                              <img src={channlesItem[1].pic1} className={styles.channel_img_big}/>
+                          }
+                          {/*<img src={channlesItem[1].pic1.indexOf('img.alicdn.com') != -1 ? channlesItem[1].pic1+'_300x300q85s150.jpg':channlesItem[1].pic1} className={styles.channel_img_big}/>*/}
                         </div>
                       </Flex.Item>
                     </Flex>
@@ -506,14 +436,26 @@ class TodayRecommend extends React.Component {
                           <div style={{height: '0.1rem'}}/>
                           <div className={styles.channel_title_mother_big}>{channlesItem[2].title}</div>
                           <div className={styles.channel_title_mother_small}>{channlesItem[2].subTitle}</div>
-                          <div className={styles.channel_title_mother_img}><img src={channlesItem[2].pic0} className={styles.channel_img_small_9k9_left}/></div>
+                          <div className={styles.channel_title_mother_img}>
+                            {
+                              channlesItem[2].pic0.indexOf('img.alicdn.com') != -1 && CommonUtil.isAndroidOrIOS() =='Android' ?
+                                <img src={channlesItem[2].pic0 +"_.webp"} className={styles.channel_img_small_9k9_left}/> :
+                                <img src={channlesItem[2].pic0} className={styles.channel_img_small_9k9_left}/>
+                            }
+                            {/*<img src={channlesItem[2].pic0.indexOf('img.alicdn.com') != -1 ? channlesItem[2].pic0+'_300x300q85s150.jpg':channlesItem[2].pic0} className={styles.channel_img_small_9k9_left}/>*/}
+                          </div>
                         </div>
                       </Flex.Item>
 
                       <Flex.Item style={{margin: 0, marginRight: '1px'}} onClick={() => this.turn(channlesItem[2].channel)}>
                         <div className={styles.channel_img_item}>
                           <div style={{height: '0.1rem'}}/>
-                          <img src={channlesItem[2].pic1} className={styles.channel_img_big}/>
+                          {
+                            channlesItem[2].pic1.indexOf('img.alicdn.com') != -1 && CommonUtil.isAndroidOrIOS() =='Android' ?
+                              <img src={channlesItem[2].pic1 +"_.webp"} className={styles.channel_img_big}/> :
+                              <img src={channlesItem[2].pic1} className={styles.channel_img_big}/>
+                          }
+                          {/*<img src={channlesItem[2].pic1.indexOf('img.alicdn.com') != -1 ? channlesItem[2].pic1+'_300x300q85s150.jpg':channlesItem[2].pic1} className={styles.channel_img_big}/>*/}
                         </div>
                       </Flex.Item>
                       <Flex.Item style={{margin: 0}} onClick={() => this.turn(channlesItem[3].channel)}>
@@ -521,14 +463,26 @@ class TodayRecommend extends React.Component {
                           <div style={{height: '0.1rem'}}/>
                           <div className={styles.channel_title_mother_big}>{channlesItem[3].title}</div>
                           <div className={styles.channel_title_mother_small}>{channlesItem[3].subTitle}</div>
-                          <div className={styles.channel_title_mother_img}><img src={channlesItem[3].pic0} className={styles.channel_img_small_9k9_left}/></div>
+                          <div className={styles.channel_title_mother_img}>
+                            {
+                              channlesItem[3].pic0.indexOf('img.alicdn.com') != -1 && CommonUtil.isAndroidOrIOS() =='Android' ?
+                                <img src={channlesItem[3].pic0 +"_.webp"} className={styles.channel_img_small_9k9_left}/> :
+                                <img src={channlesItem[3].pic0} className={styles.channel_img_small_9k9_left}/>
+                            }
+                            {/*<img src={channlesItem[3].pic0.indexOf('img.alicdn.com') != -1 ? channlesItem[3].pic0+'_300x300q85s150.jpg':channlesItem[3].pic0} className={styles.channel_img_small_9k9_left}/>*/}
+                          </div>
                         </div>
                       </Flex.Item>
 
                       <Flex.Item style={{margin: 0, marginRight: '1px'}} onClick={() => this.turn(channlesItem[3].channel)}>
                         <div className={styles.channel_img_item}>
                           <div style={{height: '0.1rem'}}/>
-                          <img src={channlesItem[3].pic1} className={styles.channel_img_big}/>
+                          {
+                            channlesItem[3].pic1.indexOf('img.alicdn.com') != -1 && CommonUtil.isAndroidOrIOS() =='Android' ?
+                              <img src={channlesItem[3].pic1 +"_.webp"} className={styles.channel_img_big}/> :
+                              <img src={channlesItem[3].pic1} className={styles.channel_img_big}/>
+                          }
+                          {/*<img src={channlesItem[3].pic1.indexOf('img.alicdn.com') != -1 ? channlesItem[3].pic1+'_300x300q85s150.jpg':channlesItem[3].pic1} className={styles.channel_img_big}/>*/}
                         </div>
                       </Flex.Item>
                     </Flex>
@@ -542,19 +496,6 @@ class TodayRecommend extends React.Component {
           : null}
 
 
-        {/*{*/}
-          {/*this.state.showAlert ?*/}
-            {/*<div>*/}
-              {/*<div id={'zezao'} className={styles.zezao}>*/}
-              {/*</div>*/}
-              {/*<div id={'zezao'} style={{position: 'fixed', zIndex: '996', top: '0rem',}}>*/}
-                {/*<img className={styles.showTaokey_taokey_img} src={showAlert} alt="打开淘宝提示"*/}
-                     {/*onClick={this.openUrl }*/}
-                {/*/>*/}
-              {/*</div>*/}
-            {/*</div>*/}
-            {/*:null*/}
-        {/*}*/}
       </div>
     );
   }

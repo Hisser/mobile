@@ -46,11 +46,13 @@ function CouponPage({dispatch, coupon}) {
 
   function BackPrevious() {
     dispatch({type: 'coupon/clearGoodsInfo'});
-    if (coupon.Flag != null) {
+    /*if (coupon.Flag != null) {
       dispatch(routerRedux.goBack());
     } else {
       dispatch(routerRedux.push("/"));
-    }
+    }*/
+
+    // dispatch(routerRedux.push("/"))
     //document.referrer === '' ? dispatch(routerRedux.push("/")) : dispatch(routerRedux.goBack());
   }
 
