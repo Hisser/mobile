@@ -121,7 +121,9 @@ app.model(play);
   }else{//token存在
     //登录查询用户信息
     let data={
-      service:'userInfo'
+      service:'userInfo',
+      checkRole:'true'
+
     }
     fetchPost('/api/gateWay',data).then(res=>{
       if(res.code ==1){
@@ -129,6 +131,7 @@ app.model(play);
         window.localStorage.setItem('userName',res.user.nickName);
         window.localStorage.setItem('userIco',res.user.userIco);
         window.localStorage.setItem('mobile',res.user.mobile);
+        window.localStorage.setItem('channelInfo',JSON.stringify(res.channelInfo));
         console.log('用户信息查询成功');
       }else{
         console.log('用户信息查询失败');

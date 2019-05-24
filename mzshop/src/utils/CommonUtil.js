@@ -54,6 +54,19 @@ CommonUtil.isAndroidOrIOS = function () {
   }
 }
 
+//根据图片大小(banner默认750*180)计算高度
+CommonUtil.heightAdapt =function(w){
+  return w * 180 / 750
+}
+//根据图片的尺寸百分比计算高度
+CommonUtil.heightAdapt2 = function(w,picWidth,picHeight){
+  return (w * document.body.clientWidth) * picHeight /picWidth
+}
+
+//判断是否是手机号
+CommonUtil.isPhone = function(phoneNumber){
+  return (/^1[13579]\d{9}$/.test(phoneNumber))
+}
 
 
 CommonUtil.getParamsObj = function (search) {

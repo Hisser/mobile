@@ -23,6 +23,7 @@ export default {
     plat: '1',                  //1-淘宝天猫；2-京东；3-拼多多
     Flag: null,   //清缓存
     shopInfo:null,
+    channelInfo:null
   },
 
   reducers: {
@@ -157,16 +158,12 @@ export default {
             });
           }
         }
-      }/* else if(goodsDetails.code == 2) {
-        alert('未登录', '点击首页右上角头像进行登录', [
-          { text: '取消', onPress: () => {window.history.back();} },
-          { text: '确定', onPress: () => {window.location.href=window._global.share_sign_url; }},
-        ])
-
-      }*/else{
+      }else{
 
         yield put({type: 'saveInfo', payload: {goodsInfo: [], details: null}});
       }
+
+
     },
 
     *reload(action, {put}) {

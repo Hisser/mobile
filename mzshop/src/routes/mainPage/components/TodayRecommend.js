@@ -324,7 +324,8 @@ class TodayRecommend extends React.Component {
               <div style={{width: '100%', textAlign: 'center'}}>
                 {bannerAd.map((item, idx) => (
                   <img key={idx} src={`${item.adCode}?x-oss-process=style/w750`} alt='图片加载失败'
-                       style={{width: '96%', height: '2.5rem', borderRadius: '0.5rem'}}
+                       // style={{width: '96%', height: '2.5rem', borderRadius: '0.5rem'}}
+                       style={{width: document.body.clientWidth *0.96, height: CommonUtil.heightAdapt(document.body.clientWidth *0.96), borderRadius: '0.3rem'}}
                        onClick={() => this.adDetail(item)}
                   />
                 ))}
@@ -344,7 +345,7 @@ class TodayRecommend extends React.Component {
                       position: 'fixed',
                       zIndex: '996',
                       left: '50%',
-                      marginTop: '-5rem',
+                      marginTop: '-8rem',
                       marginLeft: '-3.5rem',
                       display: 'inline-block'
                     }}>

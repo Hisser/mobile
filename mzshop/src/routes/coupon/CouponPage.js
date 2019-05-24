@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'dva';
 import {routerRedux} from "dva/router";
-import {Button, Flex, Modal, Carousel} from 'antd-mobile';
+import {Button, Flex, Modal, Carousel,WhiteSpace} from 'antd-mobile';
 import {Toast} from "antd-mobile/lib/index";
 import styles from './CouponPage.css';
 import CouponListView from '../coupon/components/CouponListView.js'
@@ -20,6 +20,8 @@ import sharePic from '../../assets/share.png';
 import redpac from '../../assets/redpac.png';
 import quota_state from '../../assets/quota_state.png';
 import couponQuan from '../../assets/couponQuan.png';
+import isvip from '../../assets/isvip.png';
+import novip from '../../assets/novip.png';
 import redPack from '../../assets/redPack.png';
 import couponFan from '../../assets/fan.png';
 import * as wechatApi from "../../wechatApi";
@@ -389,6 +391,39 @@ return (
         }
 
       </div>
+
+      {
+        window.localStorage.getItem('channelInfo')!='null' ?
+
+      <div style={{
+        backgroundImage: "url('"+isvip+"')",
+        backgroundSize: '100% 100%',
+        backgroundRepeat: 'no-repeat',
+        width:'100%',
+        height:'1.5rem',
+      }} onClick={()=>downApp()}>
+        <div style={{paddingLeft:'28%'}}>
+          <span style={{fontFamily:'Microsoft YaHei',fontSize:'0.4rem',color:'#79412d',lineHeight:'1.5rem'}}>你已是超级VIP,下单返</span>
+          <span style={{fontFamily:'Microsoft YaHei',fontSize:'0.4rem',color:'#fe0e0e',lineHeight:'1.5rem'}}>{commission * 2}元</span>
+        </div>
+
+      </div>
+          :
+          <div style={{
+            backgroundImage: "url('"+novip+"')",
+            backgroundSize: '100% 100%',
+            backgroundRepeat: 'no-repeat',
+            width:'100%',
+            height:'1.5rem',
+          }} onClick={()=>downApp()}>
+            <div style={{paddingLeft:'28%'}}>
+              <span style={{fontFamily:'Microsoft YaHei',fontSize:'0.4rem',color:'#79412d',lineHeight:'1.5rem'}}>升级为超级VIP,下单返</span>
+              <span style={{fontFamily:'Microsoft YaHei',fontSize:'0.4rem',color:'#fe0e0e',lineHeight:'1.5rem'}}>{commission * 2}元</span>
+            </div>
+
+          </div>
+      }
+      <WhiteSpace/>
     </div>
 
     {seller == null ? null :
@@ -509,25 +544,6 @@ return (
       </Modal>
     </div>
 
-    {/*确认额度扣款弹框*/}
-{/*    <div>
-      <Modal visible={coupon.modelVisible2} transparent maskClosable={false}>
-        <div className={styles.showTaokey}>
-          <div className={styles.showTaokey_taokey1}>
-            <div onClick={() => openUrl(goodsDetailInfo.hasCoupon, coupon.plat, goodsDetailInfo.couponPrice, goodsDetailInfo.couponUrl)}>
-              <img className={styles.showTaokey_taokey_img} src={redpac} alt="优惠券"/>
-
-            </div>
-            <div className={styles.showTaokey_span1}>
-              <span style={{fontSize: '1rem', lineHeight: '1rem', color: 'red'}}>{goodsDetailInfo.couponPrice}元</span>
-            </div>
-            <div onClick={() => hideMode2()} className={styles.showTaokey_a_close1}>
-              <img className={styles.showTaokey_a_close_img} src={ImgClose} alt=''/>
-            </div>
-          </div>
-        </div>
-      </Modal>
-    </div>*/}
     {/*红包弹出*/}
     <div>
       <Modal visible={coupon.modelVisible4} transparent maskClosable={false}>
