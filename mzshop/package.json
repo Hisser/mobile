@@ -10,7 +10,7 @@
   "dependencies": {
     "@ant-design/react-native": "^3.1.6",
     "antd-mobile": "^2.2.2",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.1.3",
     "copy-to-clipboard": "^3.0.5",
     "dva": "^2.3.1",
@@ -30,7 +30,7 @@
     "weixin-js-sdk": "^1.3.3"
   },
   "devDependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "babel-plugin-dva-hmr": "^0.3.2",
     "eslint": "^4.14.0",
     "eslint-config-umi": "^0.1.1",
